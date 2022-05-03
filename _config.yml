@@ -8,12 +8,12 @@ url: "https://wdc3iii.github.io"
 baseurl: "/website"
 header-img: img/home-bg.jpg
 headercolor: "#FFFFFF"
-logo: /project-pages/img/ProfilePicture.jpg
+logo: img/ProfilePicture.jpg
 
 # Tertiary Parameters
-github_username:  projectpages
-project_repository: project-pages
-disqus_shortname: project-pages
+github_username:  wdc3iii
+project_repository: website
+disqus_shortname: website
 g-analytics: UA-75881392-1
 altmetric: true
 
