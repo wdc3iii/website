@@ -1,9 +1,8 @@
 ---
 layout: page
 title: "About"
-description: "Why use Project Pages?"
-header-img: "img/home-bg.jpg"
+description: ""
+header-img: "img/ProfilePicture.jpg"
 ---
-
-Project Pages is a research blog tool that allows you to quickly show your latest results to an advisor, collaborators or your mom.
+Will Compton is currently pursuing a PhD in Control and Dynamical Systems at California Institute of Technology.  He earned a bachelor’s degree in Mechanical Engineering at Georgia Institute of Technology. Will has performed significant research into applications of machine learning for intent recognition and control of robotic prosthesis during his undergraduate degree, and has completed many projects in the fields of mechatronics and linear controls. His current research focus is on theoretical foundations of multi-rate control of nonlinear systems, with heavy emphasis on agile robots  including bipedal and quadruped systems. 
 	
