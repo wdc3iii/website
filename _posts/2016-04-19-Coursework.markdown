@@ -3,8 +3,8 @@ layout:     post
 title:      Example Post
 author:     Will Compton
 tags: 		  coursework
-subtitle:  	This is an example post in the coursework category
-category:   coursework
+subtitle:  	This is an example post in the undergraduate category with a coursework tag
+category:   undergraduate
 ---
 <!-- Start Writing Below in Markdown -->
 

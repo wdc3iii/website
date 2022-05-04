@@ -2,9 +2,9 @@
 layout:     post
 title:      Example Post
 author:     Will Compton
-tags: 		  personal
-subtitle:  	This is an example post in the personal category
-category:   personal
+tags: 		  research
+subtitle:  	This is an example post in the graduate category with a research tag
+category:   graduate
 ---
 <!-- Start Writing Below in Markdown -->
 

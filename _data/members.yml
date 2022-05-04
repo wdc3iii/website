@@ -2,7 +2,7 @@
 
 - name: Will Compton
   role: Graduate Student | California Institute of Technology
-  img: https://github.com/wdc3iii/website/blob/e8402df10b8a8342a3baf7ff454573c7f6efa0c9/img/ProfilePicture.jpg
+  img: img/ProfilePicture.jpg
   github: wdc3iii
   bio: Will Compton is currently pursuing a PhD in Control and Dynamical Systems at California Institute of Technology.  He earned a Bachelor's of Science in Mechanical Engineering with a minor in Robotics at Georgia Institute of Technology. Will has performed significant research into applications of machine learning for intent recognition and control of robotic prosthesis during his undergraduate degree, and has completed many projects in the fields of mechatronics and linear controls. His current research focus is on theoretical foundations of multi-rate control of nonlinear systems, with heavy emphasis on agile robots  including bipedal and quadruped systems. 
   url: http://wdc3iii.github.io/website
