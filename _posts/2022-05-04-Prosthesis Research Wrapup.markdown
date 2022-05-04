@@ -5,7 +5,6 @@ author:     Will Compton
 tags: 		  Research Prosthesis
 subtitle:  	Summary of Research and Impact at EPIC Lab
 category:   undergraduate
-disp:       "False"
 ---
 <!-- Start Writing Below in Markdown -->
 
