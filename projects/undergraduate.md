@@ -1,9 +1,9 @@
 ---
 layout: project
 title: "Undergraduate"
-subtitle: ["Research", "Coursework", "Personal"]
+displayName: "Undergraduate"
 disp: "True"
-description: "Undergraduate Tab"
+description: "Coursework, Research, and Personal Projects from Undergraduate Degree"
 header-img: "img/home-bg.jpg"
 category: undergraduate
 ---

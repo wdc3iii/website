@@ -1,9 +1,9 @@
 ---
 layout: project
 title: "Graduate"
-subtitle: ["Research", "Coursework", "Personal"]
+displayName: "Graduate"
 disp: "True"
-description: "Graduate Tab"
+description: "Coursework, Research, and Personal Projects from Graduate Degree"
 header-img: "img/home-bg.jpg"
 category: graduate
 ---
