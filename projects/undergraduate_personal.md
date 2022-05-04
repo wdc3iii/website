@@ -5,5 +5,5 @@ displayName: "Personal"
 disp: "False"
 description: "Undergraduate Personal"
 header-img: "img/home-bg.jpg"
-category: personal
+category: undergrad_personal
 ---

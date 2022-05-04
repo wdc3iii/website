@@ -5,5 +5,5 @@ displayName: "Coursework"
 disp: "False"
 description: "Graduate Coursework"
 header-img: "img/home-bg.jpg"
-category: coursework
+category: grad_coursework
 ---

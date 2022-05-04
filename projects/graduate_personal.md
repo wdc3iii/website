@@ -5,5 +5,5 @@ displayName: "Personal"
 disp: "False"
 description: "Graduate Personal"
 header-img: "img/home-bg.jpg"
-category: personal
+category: grad_personal
 ---
