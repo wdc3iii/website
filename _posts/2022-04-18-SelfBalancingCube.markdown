@@ -1,9 +1,9 @@
 ---
 layout:     post
-title:      Example Post
+title:      Self Balancing Cube
 author:     Will Compton
-tags: 		  coursework
-subtitle:  	This is an example post in the undergraduate category with a coursework tag
+tags: 		  coursework, linear controls
+subtitle:  	Semester Project for Motion Control - Balance Cube on an Edge
 category:   undergraduate
 ---
 <!-- Start Writing Below in Markdown -->

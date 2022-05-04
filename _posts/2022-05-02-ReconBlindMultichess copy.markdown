@@ -1,10 +1,10 @@
 ---
 layout:     post
-title:      Example Post
+title:      Reconaissance Blind Multichess
 author:     Will Compton
-tags: 		  research
-subtitle:  	This is an example post in the graduate category with a research tag
-category:   graduate
+tags: 		  coursework
+subtitle:  	Design of an Artifically Intelligent Agent to Play Reconnaissance Blind Multichess
+category:   undergraduate
 ---
 <!-- Start Writing Below in Markdown -->
 
