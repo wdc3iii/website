@@ -2,7 +2,7 @@
 layout:     post
 title:      Semester 8 Coursework Summary
 author:     Will Compton
-tags: 		coursework
+tags: 		Coursework
 subtitle:  	Control of Motion Systems, Robotic Intelligence & Path Planning, CreateX Capstone
 category:   undergraduate
 ---
