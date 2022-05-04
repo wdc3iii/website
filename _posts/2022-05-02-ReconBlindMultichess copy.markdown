@@ -2,7 +2,7 @@
 layout:     post
 title:      Reconaissance Blind Multichess
 author:     Will Compton
-tags: 		  coursework
+tags: 		  coursework AI
 subtitle:  	Design of an Artifically Intelligent Agent to Play Reconnaissance Blind Multichess
 category:   undergraduate
 ---

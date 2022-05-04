@@ -2,7 +2,7 @@
 layout:     post
 title:      Prosthesis Research Wrap-Up
 author:     Will Compton
-tags: 		  research
+tags: 		  research prosthesis
 subtitle:  	Summary of Research and Impact at EPIC Lab
 category:   undergraduate
 ---
