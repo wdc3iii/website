@@ -1,10 +1,10 @@
 ---
 layout:     post
-title:      New Post
-author:     Ahmet Cecen
-tags: 		post template
-subtitle:  	Some Short Description of Post
-category:  project1
+title:      Example Post
+author:     Will Compton
+tags: 		  coursework
+subtitle:  	This is an example post in the coursework category
+category:   coursework
 ---
 <!-- Start Writing Below in Markdown -->
 
