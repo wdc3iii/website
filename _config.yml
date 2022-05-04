@@ -6,7 +6,7 @@ url: "https://wdc3iii.github.io"
 
 # Secondary Parameters
 baseurl: "/website"
-header-img: img/home-bg.jpg
+header-img: img/code_background.png
 headercolor: "#FFFFFF"
 logo: img/ProfilePicture.jpg
 
@@ -34,7 +34,7 @@ defaults:
       type: "pages"
     values:
       layout: "project"
-      header-img: "img/home-bg.jpg"
+      header-img: "img/code_background.png"
 
 # Prose Settings
 prose:
