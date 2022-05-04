@@ -44,7 +44,7 @@ Each board in the particle filter will randomly select one of the available move
 In the general case, the particle filter is propogated forward by selecting a random move legal for black in RBMC for each board in the belief state, and then pruning the belief state with observations.  
 
 
-Sensing is only one of three possible observations in RBMC.  Information is also gained when the agent makes a move, or when the opponent makes a move.  When the agent makes a move, a *requested* move is sent to the game manager.  The game manager returns the *taken* move, which may differ from the requested move, as explained in the Rules section.  The difference between the requested and taken moves (or them being the same) provides information about the board which can be used to remove boards from the particle filter.  For instance, assume that white is in the given position, and has sensed on XX, seeing the bishop on XX.  White then *requests* XX, but *takes* XX.  This informs white that a black piece must have occupied XX, and boards where this is not true can be removed.  
+Sensing is only one of three possible observations in RBMC.  Information is also gained when the agent makes a move, or when the opponent makes a move.  When the agent makes a move, a *requested* move is sent to the game manager.  The game manager returns the *taken* move, which may differ from the requested move, as explained in the Rules section.  The difference between the requested and taken moves (or them being the same) provides information about the board which can be used to remove boards from the particle filter.  For instance, assume that white is in the given position, and has sensed on d6, seeing the bishop on e6.  White then *requests* e6, but *takes* f5.  This informs white that a black piece must have occupied f5, and boards where this is not true can be removed.  
 ![White requests Be6, but Bf5 is taken.  This discrepancy tells White a black piece must have been on f5.](http://wdc3iii.github.io/website/img/requested_not_taken.png)
 
 Similarly, if black captures a white piece, only boards where such a capture was possible need to be retained.  If white captures a piece (and is informed only that a piece was captured, not which piece), boards where the captured square was empty can be eliminated.
@@ -98,9 +98,7 @@ My first approach to this problem was to train a neural network to approximate [
 To deal with uncertainty, $M<<N$ boards are selected from the belief state to search over.  Minimax search is apply simultaneouly to each of these boards, where the evaluation of each node in the searc tree is the average of each of the evaluations of the $M$ boards.  
 
 The $M$ boards are choses as the most likely boards from the belief state.  If the belief state is viewed as a probability distribution, then the likelihood of a board existing is given as:
-
 $$P(b)=\prod_{x\in X}{P(x=b(x))}$$
-
 The log probability is computed for each of the $N$ boards, and the $M$ boards with the highest log probability are selected for minimax search. 
 
 # Results
