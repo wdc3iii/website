@@ -64,27 +64,19 @@ Even when looking into the past, situations can occur where no boards are able t
 ## Sensing
 
 The location to sense is determined by balancing information gain with threatening and weak squares within the current board distribution.  First, the entropy of each square is computed using:
-
 $$H(X) = -\sum_{i\in S}{P(X=i)\log{P(X=i)}}$$
-
 Where $H(X)$ is the entropy of square $X$, $S$ is the set of possible states for that square (each type of chess piece for each color, and empty), and $P(X=i)$ is the probability of the square being in specific state, I.E. a4 containing a black rook, where $P(X=i)$ is approximated from the belief state as:
-
 $$P(X=i)\approx \frac{1}{N}\sum_{b\in B}b(X)==i$$
-
 Where $b$ is a board in the belief state $B$, and $b(X)$ is the state of square $X$ on board $b$.
 
 Similarly, the 'Threat Value' $T(X)$ and 'Weakness Value' $W(X)$ are computed for each square.  The Threat Value of a square is defined as the total material value that the piece on that square attacks, and is only non-zero for opponent pieces.  The Weakness Value is defined as the product of a piece's value and the number of pieces attacking it, and is similarly defined as non-zero for opponent pieces.  The Threat and Weakness values are summed over all boards in the belief state.  
 
 With these values, the sense operation is chosen to maximize the sum of the heuristic $L$ across the nine squares in the sense region:
-
 $$L(X) = \left(T(X) + W(X) + \alpha\right) * H(X)$$
-
 Where $\alpha$ is a parameter which weights the priority of maximizing information gain and threat or attack. Multiplying the threat and weakness values by the entropy ensures that these are only prioritized if they are uncertain; squares that have a high degree of certainty don’t need to be sensed. 
 
 If $X=(X_r,X_c)$ is defined by its rank and file (row and column), then the sense is chosen:
-
 $$X_{sense} = \operatorname*{argmin}_{X}\sum_{r=X_r-1}^{X_r + 1}{\sum_{c=X_c-1}^{X_c + 1}{L(r,c)}}$$
-
 
 ## Move Selection
 Move selection is performed using [Minimax Search](https://www.chessprogramming.org/Minimax) with [alpha/beta pruning](https://www.chessprogramming.org/Alpha-Beta), a well known chess search algorithm.  In brief, Minimax search creates a search tree, where an evaluation function is alternately maximized (when it is the agent's turn) and minimized (when it is the opponent's turn).  
@@ -114,6 +106,3 @@ The log probability is computed for each of the $N$ boards, and the $M$ boards w
 The agent was evaluated against a random agent, and adversarial knight rush agent (which aimed to captured the king with four knight moves), and in competition against other teams in the CS4649 class at Georgia Tech.  My agent only lost to one other team's agent, 1-2 in a best of three.  My agent drew black twice, and may have beat the opponent if it has recieved white twice.  
 
 Overall, the project was quite fun to work on.  Future directions I find interesting mainly deal with moving away from reliance on existing chess knownledge, and instead attempting to learn RBMC strategy directly.  Various approaches, such as Alpha-Zero style techniques are interesting, but require immense compute and time to become effective.  Additionally, RBMC provides significant additional difficulties beyond classical chess, mainly due to the partial observability; learned approaches must either represent a belief state explicitly or perhaps implicity, through a recursive network structure such as an LSTM.  
-## Collaboration
-
-I worked on this project in collaboration with William Cooper.
