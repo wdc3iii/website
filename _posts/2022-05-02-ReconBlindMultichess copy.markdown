@@ -76,7 +76,7 @@ $$L(X) = \left(T(X) + W(X) + \alpha\right) * H(X)$$
 Where $\alpha$ is a parameter which weights the priority of maximizing information gain and threat or attack. Multiplying the threat and weakness values by the entropy ensures that these are only prioritized if they are uncertain; squares that have a high degree of certainty don’t need to be sensed. 
 
 If $X=(X_r,X_c)$ is defined by its rank and file (row and column), then the sense is chosen:
-$$X_{sense} = \argmax_{X}\sum_{r=X_r-1}^{X_r + 1}{\sum_{c=X_c-1}^{X_c + 1}{L(r,c)}}$$
+$$X_{sense} = \operatorname*{argmin}_{X}\sum_{r=X_r-1}^{X_r + 1}{\sum_{c=X_c-1}^{X_c + 1}{L(r,c)}}$$
 
 ## Move Selection
 Move selection is performed using [Minimax Search](https://www.chessprogramming.org/Minimax) with [alpha/beta pruning](https://www.chessprogramming.org/Alpha-Beta), a well known chess search algorithm.  In brief, Minimax search creates a search tree, where an evaluation function is alternately maximized (when it is the agent's turn) and minimized (when it is the opponent's turn).  
