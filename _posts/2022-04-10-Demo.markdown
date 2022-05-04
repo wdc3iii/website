@@ -1,10 +1,9 @@
 ---
 layout:     post
-title:      Prosthesis Research Wrap-Up
+title:      Post Demo
 author:     Will Compton
-tags: 		  Research Prosthesis
-subtitle:  	Summary of Research and Impact at EPIC Lab
-category:   undergraduate
+subtitle:  	Demo for a few things
+category:   demo
 disp:       "False"
 ---
 <!-- Start Writing Below in Markdown -->
