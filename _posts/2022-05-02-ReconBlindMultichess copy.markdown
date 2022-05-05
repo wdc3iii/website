@@ -5,7 +5,7 @@ author:     Will Compton
 tags: 		  Coursework AI
 subtitle:  	Design of an Artifically Intelligent Agent to Play Reconnaissance Blind Multichess
 category:   undergraduate
-header-img: img/chess.png
+header-img: img/chess1.png
 ---
 <!-- Start Writing Below in Markdown -->
 
