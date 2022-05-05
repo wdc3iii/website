@@ -11,6 +11,7 @@ header-img: img/chess1.png
 
 # Table of Contents
 
+* TOC
 {:toc}
 
 # Overview
