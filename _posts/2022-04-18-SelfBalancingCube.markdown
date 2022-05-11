@@ -5,7 +5,7 @@ author:     Will Compton
 tags: 		  Coursework Controls
 subtitle:  	Semester Project for Motion Control - Balance Cube on an Edge
 category:   undergraduate
-header-img: img/selfbalancingcube/selfbalancingcube1.jpg
+header-img: img/selfbalancingcube/selfbalancingcube2.jpg
 ---
 <!-- Start Writing Below in Markdown -->
 
