@@ -1,11 +1,11 @@
 ---
 layout:     post
-title:      Reconaissance Blind Multichess
+title:      Reconnaissance Blind Multichess
 author:     Will Compton
 tags: 		  Coursework AI
 subtitle:  	Design of an Artifically Intelligent Agent to Play Reconnaissance Blind Multichess
 category:   undergraduate
-header-img: img/chess1.png
+header-img: img/reconblindchess/chess1.png
 ---
 <!-- Start Writing Below in Markdown -->
 
@@ -38,14 +38,14 @@ My AI agent uses a particle filter to maintain a belief state regarding the exis
 ## Belief State
 
 The belief state is approximated by a particle filter which maintains $N$ individual chess boards.  At the beginning of the game, the board is known exactly.  After the first move, black has 20 available moves to make:
-![After white plays 1.e4, black has 20 available moves.](http://wdc3iii.github.io/website/img/black_move_1.png)
+![After white plays 1.e4, black has 20 available moves.](http://wdc3iii.github.io/website/img/reconblindchess/black_move_1.png)
 Each board in the particle filter will randomly select one of the available moves, and play that move on its board.  After turn 1, the $N$ boards will now approximate the distribution of black pieces on the board.  White chooses a location to sense, and recieves information about a 3x3 section of the grid.  This information will be compared to all boards in the belief state, and boards which do not match the sense will be removed from the belief state.
 
 In the general case, the particle filter is propogated forward by selecting a random move legal for black in RBMC for each board in the belief state, and then pruning the belief state with observations.  
 
 
 Sensing is only one of three possible observations in RBMC.  Information is also gained when the agent makes a move, or when the opponent makes a move.  When the agent makes a move, a *requested* move is sent to the game manager.  The game manager returns the *taken* move, which may differ from the requested move, as explained in the Rules section.  The difference between the requested and taken moves (or them being the same) provides information about the board which can be used to remove boards from the particle filter.  For instance, assume that white is in the given position, and has sensed on d6, seeing the bishop on e6.  White then *requests* e6, but *takes* f5.  This informs white that a black piece must have occupied f5, and boards where this is not true can be removed.  
-![White requests Be6, but Bf5 is taken.  This discrepancy tells White a black piece must have been on f5.](http://wdc3iii.github.io/website/img/requested_not_taken.png)
+![White requests Be6, but Bf5 is taken.  This discrepancy tells White a black piece must have been on f5.](http://wdc3iii.github.io/website/img/reconblindchess/requested_not_taken.png)
 
 Similarly, if black captures a white piece, only boards where such a capture was possible need to be retained.  If white captures a piece (and is informed only that a piece was captured, not which piece), boards where the captured square was empty can be eliminated.
 
@@ -82,7 +82,7 @@ $$X_{sense} = \operatorname*{argmin}_{X}\sum_{r=X_r-1}^{X_r + 1}{\sum_{c=X_c-1}^
 ## Move Selection
 Move selection is performed using [Minimax Search](https://www.chessprogramming.org/Minimax) with [alpha/beta pruning](https://www.chessprogramming.org/Alpha-Beta), a well known chess search algorithm.  In brief, Minimax search creates a search tree, where an evaluation function is alternately maximized (when it is the agent's turn) and minimized (when it is the opponent's turn).  
 The search tree below creates and exhaustive search tree to depth 3.  Starting from the leaf nodes, the evaluation function is alternatively maximized (on the agent's turn) and minimized (on the opponent's turn) up the tree.  Move one is selected, because this is the move which leads to the best node at the tree's maximum depth.  
-![The minimax algorithm.](http://wdc3iii.github.io/website/img/minimax.png)
+![The minimax algorithm.](http://wdc3iii.github.io/website/img/reconblindchess/minimax.png)
 Note that not much search effort can be retained after each move.  Chess has a branching factor of around 30.
 
 Alpha/Beta pruning is a method of branch and bound search which can eliminate subtrees from being pursued if a better (or worse, depending on min/max) alternative has already been found. 
