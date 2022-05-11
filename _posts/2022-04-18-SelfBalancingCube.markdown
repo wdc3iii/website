@@ -85,7 +85,7 @@ A few details of the controller implementation deserve notes. First, due to wire
 To correct for this, the device is balanced by hand, and this offset angle is measured. The offset can then be subtracted so that the device balances over its center of mass instead of the IMU Z axis. Secondly, the control loop is implemented at a rate of 200Hz. It is assumed that this is a sufficiently fast update rate to ignore the discrete control aspects of the controller and treat it as continuous.
 # Performance
 Performance is perhaps most enjoyably evaluated by simply watching videos:
-
+## TODO: Add performance videos
 
 For more quantitative metric, consider the steady state operation, which maintains a deviation of less than $0.3\degree$. 
 ![Steady State Performance](http://wdc3iii.github.io/website/img/selfbalancingcube/ss_performance.png)
