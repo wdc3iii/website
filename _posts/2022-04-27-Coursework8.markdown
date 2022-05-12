@@ -70,3 +70,6 @@ The course is structured around two midterms, weekly homeworks which include bot
 
 # APPH 1040 - Scientific Foundations of Health
 In an effort to frontload my coursework, I decided freshman year to leave this health class the end of my senior year, to reduce my final coursework load, and provide extra time to work on Capstone and other project.  This was a great choice, as completing this class took little effort and time.  The course covered various introductory health topics, spanning physical, mental, emotional, and other categories.  This class is a Georgia Tech requirement, and is predominantly taken freshman year.  
+
+# Graduation
+This was my last semester at Georgia Tech, and on May 7th, 2022 I graduated with highest honors with a B.S. Mechanical Engineering with a minor in Robotics.  If you are interested in my path through this degree, my transcripts are available [here]().  
