@@ -14,6 +14,9 @@ header-img: img/coursework/semester8_header.png
 * TOC
 {:toc}
 
+# Overview
+This semester was one of the heaviest project based semesters of my undergraduate experience.  Several classes had significant final projects, in junction with my undergraduate capstone, and research.  Luckily, several of my classes had significant theoretical overlap with courses taken in previous semesters, making it easier to focus on applications and projects.  
+
 # ME 4723 - Interdisciplinary Capstone Design
 At Georgia Tech, all engineers complete a 'Capstone Design' course which is supposed to represent a culmination of the engineering education into a large-scale team based project.  Projects can either be self-assigned or teams can bid on projects proposed by companies in industry (often including large companies such as Delta).  My team (composed of myself (ME), Dustin Coha (ME), Sathya Gummadi (EE), Sandeepan Mukherjee (ME), and Dillon Wells (ME)) decided to take the CreateX variant of capstone, which focuses heavily on entrepreneurship.  A few of my teammates have goals in entrepreneurship, and I personally felt that while my problem-solving skills were quite developed, my problem-finding skills had not been focused on as significantly focused on during my education.  
 
