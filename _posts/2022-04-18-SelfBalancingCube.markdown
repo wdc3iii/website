@@ -90,7 +90,7 @@ To correct for this, the device is balanced by hand, and this offset angle is me
 # Performance
 Performance is perhaps most enjoyably evaluated by simply watching videos:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/mDkUheMKa_8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>https://youtu.be/7sff9igeF-k
+<iframe width="560" height="315" src="https://www.youtube.com/embed/mDkUheMKa_8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/7sff9igeF-k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
