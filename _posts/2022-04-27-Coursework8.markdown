@@ -32,7 +32,8 @@ Once the problem had been decided on, the course focused on various startup/entr
 
 The course is organized with three reports, three presentations, and a few miscellaneous grades including peer and instructor evaluations.  
 
-I have organized our engineering progress on the project in a Github repo [here]() and our final report is available [here]().
+I have organized our engineering progress on the project in a Github repo [here](https://github.com/wdc3iii/Pomdot) and our final report is available [here](https://github.com/wdc3iii/Pomdot/tree/main/Reports).
+
 # ME 4012 - Motion Systems
 Motion Systems is a lab course which covers the fundamentals of linear control theory, including:
 * System Modeling Overview
