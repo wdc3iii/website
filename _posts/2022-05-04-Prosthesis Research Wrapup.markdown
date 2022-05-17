@@ -15,7 +15,7 @@ category:   undergraduate
 
 
 # Overview
-My last semester at Georgia Tech marked over three years of working at EPIC Lab on the knee-ankle prosthesis project.  With several other projects, including capstone, and graduation all occurring together, it was perhaps not my most impactful semester at EPIC, but our team made significant progress, particularly on our adaptive machine learning pipeline.  This post builds directly off of previous posts (Semesters [3](), [4](), [5](), [6](), and [7]()), which may introduce vocabulary or topics relevant to this post.  
+My last semester at Georgia Tech marked over three years of working at EPIC Lab on the knee-ankle prosthesis project.  With several other projects, including capstone, and graduation all occurring together, it was perhaps not my most impactful semester at EPIC, but our team made significant progress, particularly on our adaptive machine learning pipeline.  This post builds directly off of previous posts (Semesters [3](), [4](), [5](), [6](), and [7]()), which may introduce vocabulary or topics relevant to this post.  As usual, because of the sensitive nature of active research which is not entirely mine, I can only give overviews here, and will not be sharing any results or code unless the lab has published a paper or open-sourced a codebase.
 
 # Machine Learning Team
 ![Adaptive Pipeline Outline](http://wdc3iii.github.io/website/img/epic/adaptive_pipeline.png)
