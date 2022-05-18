@@ -3,7 +3,7 @@ layout:     post
 title:      Semester 7 Coursework Summary
 author:     Will Compton
 tags: 		Coursework
-subtitle:  	Control of Motion Systems, Robotic Intelligence & Path Planning, CreateX Capstone
+subtitle:  	Systems Lab, Control of Dynamical Systems, Robotics, Intro to Robotics and Perception
 category:   undergraduate
 header-img: img/coursework/semester8_header.png
 ---

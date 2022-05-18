@@ -1,0 +1,15 @@
+---
+layout:     post
+title:      Deep Reinforcement Learning For Active Structural Stabilization
+author:     Will Compton
+tags: 		Research AI
+subtitle:  	Design of Deep Reinforcement Learning Techniques to Stabilize Structures Against External Excitation
+category:   undergraduate
+header-img: img/structuredrl/header.png
+---
+<!-- Start Writing Below in Markdown -->
+
+# Table of Contents
+
+* TOC
+{:toc}
