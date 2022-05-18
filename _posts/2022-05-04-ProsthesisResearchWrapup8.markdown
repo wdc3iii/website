@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Prosthesis Research Wrap-Up
+title:      Semester 8 Prosthesis Research Wrap-Up
 author:     Will Compton
 tags: 		Research Prosthesis
 subtitle:  	Summary of Research and Impact at EPIC Lab
