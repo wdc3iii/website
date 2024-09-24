@@ -32,6 +32,10 @@ The course follows heavily the context from Boyd and Vandenberghe's [*Convex Opt
 
 # Linear Systems (CDS 131)
 
+Linear systems, taught to me by Soon-jo Chung, covers the fundamentals of linear systems control, at a graduate level. The first portion of the course covers state-space control technqiues, including controllability, observability, LQR, and the Kalman filter. The second portion covers Frequency domain methods and introduces concepts in robust control, including signal and system norms, wellposedness and internal stability, and nominal and robust performance/stability criteria. 
+
+The course draws upon more basic concepts in linear control theory, including transfer function/state space representations, stability analysis of SISO systems, bode plots and the nyquist criterion (for SISO systems), as well as some fundamental proof techniques and linear algebra (Jordan Normal Form, eigenvalues/eigenspaces, ect). 
+
 # Nonlinear Dynamics (CDS 232)
 
 # Study Materials/Techniques
