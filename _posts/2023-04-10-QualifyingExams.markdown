@@ -32,4 +32,6 @@ Each section of the exam must be independently passed. Grades given on each sect
 
 # Study Materials/Techniques
 
+There are several study materials and opportunities provided to Caltech CDS students to prepare for the qualifying exams. Firstly, as exam content is written by the instructor, the materials for the course (homeworks, exams, course notes) are excellent study materials. Additionally, a Google Drive containing recent practice exams is located [here](https://drive.google.com/drive/folders/1YpIiN-Blaow6PZ7Nu8ZrmE2rjH_iapkP?usp=drive_link). It is recommended to save these exams until the end of studying, as there are only four of these exams; they are likely most effective if taken under test-like conditions (under time limits, with an oral presentation at the whiteboard). Additionally, CDS students from years above volunteer to proctor practice exams, so it is best to save one or two of the practice exams for CDS student proctoring. 
+
 # Conclusion
