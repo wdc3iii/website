@@ -10,10 +10,10 @@ category:   misc
 
 # Mamba (python virtual environments)
 
-- Creating virtual environment with specific python version: `mamba create -n env_name python==3.v`
-- Removing virtual environment: `mamba env remove -n env_name`
-- Creating virtual environment from yaml file: `mamba env create -f environment.yaml`
-- Exporting virtual environment to yaml file: `mamba export > environment.yaml`
+- Creating virtual environment with specific python version: ```mamba create -n env_name python==3.v```
+- Removing virtual environment: ````mamba env remove -n env_name```
+- Creating virtual environment from yaml file: ```mamba env create -f environment.yaml```
+- Exporting virtual environment to yaml file: ```mamba export > environment.yaml```
 
 # Matlab Plotting
 
