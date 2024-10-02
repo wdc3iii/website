@@ -10,10 +10,10 @@ category:   misc
 
 # Mamba (python virtual environments)
 
-- Creating virtual environment with specific python version: ```mamba create -n env_name python==3.v```
-- Removing virtual environment: ```mamba env remove -n env_name```
-- Creating virtual environment from yaml file: ```mamba env create -f environment.yaml```
-- Exporting virtual environment to yaml file: ```mamba export > environment.yaml```
+- Creating virtual environment with specific python version: <br>```mamba create -n env_name python==3.v```
+- Removing virtual environment: <br>```mamba env remove -n env_name```
+- Creating virtual environment from yaml file: <br>```mamba env create -f environment.yaml```
+- Exporting virtual environment to yaml file: <br>```mamba export > environment.yaml```
 
 # Matlab Plotting
 
@@ -25,7 +25,7 @@ set(groot, 'DefaultLegendInterpreter', 'latex')
 set(groot, 'DefaultFigureRenderer', 'painters');
 set(groot, 'DefaultLineLineWidth', 2)
 set(groot, 'DefaultLineMarkerSize', 15)```
-- Reset the color order to default: `set(gca,'ColorOrderIndex',1)`
+- Reset the color order to default: <br>```set(gca,'ColorOrderIndex',1)```
 
 # Latex Style file
 ```\usepackage{amsmath}
