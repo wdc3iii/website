@@ -28,27 +28,27 @@ set(groot, 'DefaultLineMarkerSize', 15)```
 - Reset the color order to default: `set(gca,'ColorOrderIndex',1)`
 
 # Latex Style file
-```\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{amssymb}
-\usepackage{balance}
-\usepackage{graphicx}
-\usepackage{xcolor}
-\usepackage[capitalize]{cleveref}
-\usepackage{optidef}    % optimization problems
+```\\usepackage\{amsmath\}
+\\usepackage\{amsfonts\}
+\\usepackage\{amssymb\}
+\\usepackage\{balance\}
+\\usepackage\{graphicx\}
+\\usepackage\{xcolor\}
+\\usepackage[capitalize]\{cleveref\}
+\\usepackage\{optidef\}    % optimization problems
 
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\red}[1]{\textcolor{red}{#1}}
-\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\\newcommand\{\\R\}\{\\mathbb\{R\}\}
+\\newcommand\{\\red\}[1]\{\\textcolor\{red\}{#1\}\}
+\\newcommand\{\\blue\}[1]\{\\textcolor\{blue\}\{#1\}\}
 
-\newcommand{\Z}{\mathbb{Z}}
-\renewcommand{\cal}[1]{\mathcal{#1}}
+\\newcommand\{\\Z\}\{\\mathbb\{Z\}\}
+\\renewcommand\{\\cal\}[1]\{\\mathcal\{#1\}\}
 
-\renewcommand\b[1]{%
-  \ifcat\noexpand#1\relax % check if the argument is a control sequence
-    \boldsymbol{#1}% probably Greek
-  \else
-    \mathbf{#1}% single character
-  \fi
-}
+\\renewcommand\b[1]\{\%
+  \\ifcat\\noexpand#1\\relax % check if the argument is a control sequence
+    \boldsymbol\{#1\}\% probably Greek
+  \\else
+    \\mathbf\{#1\}\% single character
+  \\fi
+\}
 ```
