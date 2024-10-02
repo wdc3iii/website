@@ -17,14 +17,17 @@ category:   misc
 
 # Matlab Plotting
 
-- General setup for "nice" plots: <br> ```set(groot, 'DefaultAxesFontSize', 17);  % Set default font size for axes labels and ticks<br>
-set(groot, 'DefaultTextFontSize', 17);  % Set default font size for text objects<br>
-set(groot, 'DefaultAxesTickLabelInterpreter', 'latex');  % Set interpreter for axis tick labels<br>
-set(groot, 'DefaultTextInterpreter', 'latex');  % Set interpreter for text objects (e.g., titles, labels)<br>
-set(groot, 'DefaultLegendInterpreter', 'latex');<br>
-set(groot, 'DefaultFigureRenderer', 'painters');<br>
-set(groot, 'DefaultLineLineWidth', 2)<br>
+- General setup for "nice" plots:
+
+```set(groot, 'DefaultAxesFontSize', 17);  % Set default font size for axes labels and ticks
+set(groot, 'DefaultTextFontSize', 17);  % Set default font size for text objects
+set(groot, 'DefaultAxesTickLabelInterpreter', 'latex');  % Set interpreter for axis tick labels
+set(groot, 'DefaultTextInterpreter', 'latex');  % Set interpreter for text objects (e.g., titles, labels)
+set(groot, 'DefaultLegendInterpreter', 'latex');
+set(groot, 'DefaultFigureRenderer', 'painters');
+set(groot, 'DefaultLineLineWidth', 2)
 set(groot, 'DefaultLineMarkerSize', 15);```
+
 - Reset the color order to default: <br>```set(gca,'ColorOrderIndex',1)```
 
 # Latex Style file
