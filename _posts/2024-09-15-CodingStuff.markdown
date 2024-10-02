@@ -17,11 +17,18 @@ category:   misc
 
 # Matlab Plotting
 
-- General setup for "nice" plots: ``
-- Reset the color order to default: ``
+- General setup for "nice" plots: ```set(groot, 'DefaultAxesFontSize', 17);  % Set default font size for axes labels and ticks
+set(groot, 'DefaultTextFontSize', 17);  % Set default font size for text objects
+set(groot, 'DefaultAxesTickLabelInterpreter', 'latex');  % Set interpreter for axis tick labels
+set(groot, 'DefaultTextInterpreter', 'latex');  % Set interpreter for text objects (e.g., titles, labels)
+set(groot, 'DefaultLegendInterpreter', 'latex')
+set(groot, 'DefaultFigureRenderer', 'painters');
+set(groot, 'DefaultLineLineWidth', 2)
+set(groot, 'DefaultLineMarkerSize', 15)```
+- Reset the color order to default: `set(gca,'ColorOrderIndex',1)`
 
 # Latex Style file
-`\usepackage{amsmath}
+```\usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{balance}
@@ -44,4 +51,4 @@ category:   misc
     \mathbf{#1}% single character
   \fi
 }
-`
+```
