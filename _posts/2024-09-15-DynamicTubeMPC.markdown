@@ -5,6 +5,7 @@ author:     Will Compton
 tags: 		Research Hopper
 subtitle:  	International Conference on Robotics and Automation 2025
 category:   paper
+thumbnail-img: img/code_background.png
 ---
 <!-- Start Writing Below in Markdown -->
 

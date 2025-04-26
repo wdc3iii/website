@@ -5,6 +5,7 @@ author:     Will Compton
 tags: 		Exams References
 subtitle:  	Content and Preparation
 category:   blog
+thumbnail-img: img/code_background.png
 ---
 <!-- Start Writing Below in Markdown -->
 # Table of Contents

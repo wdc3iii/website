@@ -122,7 +122,7 @@ Below, you’ll find my latest papers and blog posts.
   {% if post.categories contains "paper" or post.categories contains "blog" %}
     <div class="post-card">
       {% if post.image %}
-      <img src="{{ post.image | relative_url }}" alt="Post image">
+      <img src="{{ post.thumbnail-img }}" alt="{{ post.title }}">
       {% endif %}
       <div class="post-content">
         <a href="{{ post.url | relative_url }}">

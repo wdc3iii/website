@@ -5,6 +5,7 @@ author:     Will Compton
 tags: 		Research Control
 subtitle:  	Control and Decisions Conference 2024
 category:   paper
+thumbnail-img: img/code_background.png
 ---
 <!-- Start Writing Below in Markdown -->
 
