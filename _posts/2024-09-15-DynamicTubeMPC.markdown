@@ -4,7 +4,7 @@ title:      Dynamic Tube MPC - Learning Tube Dynamics using Massively Parallel S
 author:     Will Compton
 tags: 		Research Hopper
 subtitle:  	International Conference on Robotics and Automation 2025
-category:   graduate
+category:   paper
 ---
 <!-- Start Writing Below in Markdown -->
 

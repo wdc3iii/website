@@ -4,7 +4,7 @@ title:      "Pomdot: Children's Safety Wearable"
 author:     Will Compton
 tags: 		Coursework
 subtitle:  	Senior Capstone Design - A Child's Wearable for Safety Monitoring
-category:   undergraduate
+category:   misc
 header-img: img/pomdot/pomdot_header.png
 
 ---

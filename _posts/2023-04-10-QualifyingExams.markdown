@@ -4,7 +4,7 @@ title:      Caltech Control and Dynamical Systems Qualifying Exams
 author:     Will Compton
 tags: 		Exams ReferenceMaterials
 subtitle:  	Content and Preparation
-category:   graduate
+category:   blog
 ---
 <!-- Start Writing Below in Markdown -->
 # Table of Contents

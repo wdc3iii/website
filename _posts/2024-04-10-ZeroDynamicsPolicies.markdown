@@ -4,7 +4,7 @@ title:      Constructive Control of Underactuated Systems via Zero Dynamics Poli
 author:     Will Compton
 tags: 		Research ControlTheory
 subtitle:  	Control and Decisions Conference 2024
-category:   graduate
+category:   paper
 ---
 <!-- Start Writing Below in Markdown -->
 

@@ -3,7 +3,7 @@ layout:     post
 title:      Random Coding Stuff
 author:     Will Compton
 tags: 		Miscellaneous
-subtitle:  	International Conference on Robotics and Automation 2025
+subtitle:  	Code Snippets which are useful to remember
 category:   misc
 ---
 <!-- Start Writing Below in Markdown -->
@@ -19,19 +19,22 @@ category:   misc
 
 - General setup for "nice" plots:
 
-```set(groot, 'DefaultAxesFontSize', 17);  % Set default font size for axes labels and ticks
-set(groot, 'DefaultTextFontSize', 17);  % Set default font size for text objects
-set(groot, 'DefaultAxesTickLabelInterpreter', 'latex');  % Set interpreter for axis tick labels
-set(groot, 'DefaultTextInterpreter', 'latex');  % Set interpreter for text objects (e.g., titles, labels)
-set(groot, 'DefaultLegendInterpreter', 'latex');
-set(groot, 'DefaultFigureRenderer', 'painters');
-set(groot, 'DefaultLineLineWidth', 2)
-set(groot, 'DefaultLineMarkerSize', 15);```
+```
+set(groot, 'DefaultAxesFontSize', 17);                    % Set default font size for axes labels and ticks
+set(groot, 'DefaultTextFontSize', 17);                    % Set default font size for text objects
+set(groot, 'DefaultAxesTickLabelInterpreter', 'latex');   % Set interpreter for axis tick labels
+set(groot, 'DefaultTextInterpreter', 'latex');            % Set interpreter for text objects (e.g., titles, labels)
+set(groot, 'DefaultLegendInterpreter', 'latex');          % Set the default legend interpreter to Latex
+set(groot, 'DefaultFigureRenderer', 'painters');          % Render figures with Painters
+set(groot, 'DefaultLineLineWidth', 2)                     % Set default line with to 2
+set(groot, 'DefaultLineMarkerSize', 15);                  % Set default line marker size to 15
+```
 
 - Reset the color order to default: <br>```set(gca,'ColorOrderIndex',1)```
 
 # Latex Style file
-```\usepackage{amsmath}
+```
+\usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{balance}
