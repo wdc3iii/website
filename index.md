@@ -121,7 +121,7 @@ Below, you’ll find my latest papers and blog posts.
 {% for post in site.posts %}
   {% if post.categories contains "paper" or post.categories contains "blog" %}
     <div class="post-card">
-      {% if post.image %}
+      {% if post.thumbnail-img %}
       <img src="{{ post.thumbnail-img }}" alt="{{ post.title }}">
       {% endif %}
       <div class="post-content">
