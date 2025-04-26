@@ -15,12 +15,25 @@ Below, you’ll find my latest papers and blog posts.
 
 ## Research Papers and Blog Posts
 
-{% assign allowed_categories = "papers,blog" | split: "," %}
-
+{% assign allowed_categories = "paper,blog" | split: "," %}
 {% for post in site.posts %}
-  {% assign post_cats = post.categories | join: "," | append: "," | split: "," %}
-  {% assign intersect = post_cats | uniq | array_contains: allowed_categories %}
-  {% if intersect %}
-- [{{ post.title }}]({{ post.url | relative_url }}) ({{ post.date | date: "%b %-d, %Y" }})
-  {% endif %}
+    {% assign post_cats = post.categories | join: "," | append: "," | split: "," %}
+    {% assign intersect = post_cats | uniq | array_contains: allowed_categories %}
+    {% if intersect %}<div class="post-preview">
+    <a href="{{ post.url | prepend: site.baseurl }}">
+        <h2 class="post-title">            {{ post.title }}
+        </h2>
+        {% if post.subtitle %}
+        <h3 class="post-subtitle">
+            {{ post.subtitle }}
+        </h3>
+        {% endif %}
+    </a>
+    <p class="post-meta" style="margin-bottom:5px">Posted by {{ post.author }} on {{ post.date | date: "%B %-d, %Y" }}</p>
+	<div class="notepad-index-post-tags" style="">
+		{% for tag in post.tags %}<a href="{{ site.baseurl }}/search/index.html#{{ tag | cgi_encode }}" title="Other posts from the {{ tag | capitalize }} tag">{{ tag | capitalize }}</a>{% unless forloop.last %}&nbsp;{% endunless %}{% endfor %}
+	</div>
+</div>
+<hr>
+{% endif %}
 {% endfor %}
