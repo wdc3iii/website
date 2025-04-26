@@ -41,7 +41,7 @@
                         {% else %}
                             <!-- Regular Page Link -->
                             <li>
-                                <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+                                <a href="{{ page.url | relative_url }}">{{ page.title }}</a>
                             </li>
                         {% endif %}
                     {% endif %}
