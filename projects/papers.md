@@ -5,5 +5,7 @@ displayName: "Papers"
 disp: "True"
 description: "Summaries to recent academic papers."
 header-img: img/code_background.png
-category: Papers
+category: paper
+nav: true
+nav_order: 1
 ---

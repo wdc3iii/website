@@ -4,6 +4,7 @@
   role: Doctoral Student | California Institute of Technology
   img: http://wdc3iii.github.io/website/img/ProfilePicture.jpg
   github: wdc3iii
+  scholar: https://scholar.google.com/citations?user=Yf21RT8AAAAJ&hl=en
+  arxiv: https://arxiv.org/search/?searchtype=author&query=Compton%2C+W+D
   bio: "I am a PhD candidate in Control and Dynamical Systems at the California Institute of Technology, advised by Professor Aaron D. Ames. My research lies at the intersection of nonlinear control theory, machine learning, and robotics, with a particular emphasis on developing control frameworks for agile and robust locomotion in legged robotic systems. I have explored areas including the control of underactuated systems, model predictive control, reinforcement learning, and layered control architectures, and have applied these approaches to bipedal, quadrupedal, and monopedal robots. My work aims to bridge the gap between theoretical control concepts and practical robotic implementations."
-  url: http://wdc3iii.github.io/website
   visible: true

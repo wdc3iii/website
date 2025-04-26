@@ -1,9 +1,9 @@
 <!-- Navigation -->
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
     <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
+        <!-- Brand and toggle for mobile -->
         <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -12,33 +12,41 @@
             <a class="navbar-brand" href="{{ site.baseurl }}/">{{ site.title }}</a>
         </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <!--li>
-                    <a href="{{ site.baseurl }}/">Home</a>
-                </li-->
-				{% for page in site.pages %}{% if page.url contains "projects/" %}{% if page.title %}{% if page.subtitle %}
-					<li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{ page.title }}
-                        </a>
-						<div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown" style="min-width:10px;">
-							{% for sub in page.subtitle %}{% for p in site.pages %}{% if p.title contains sub %}
-                                <a align="right" style="color:black; padding:5px 0px 5px 20px; " class="dropdown-item" style="min-width:10px; " href="{{ p.url | prepend: site.baseurl }}">{{ p.displayName }}</a>
-							{% endif %}{% endfor %}{% endfor %}
-						</div>
-					</li>
-				{% else %}{% if page.disp contains "True" %}
-                    <li>
-                        <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
-                    </li>
-                {% endif %}{% endif %}{% endif %}{% endif %}{% endfor %}
-				{% for page in site.pages %}{% if page.url contains "projects/" %}{% else %}{% if page.title %}
-                    <li>
-                        <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
-                    </li>
-                {% endif %}{% endif %}{% endfor %}
+
+                {% assign sorted_pages = site.pages | sort: "nav_order" %}
+
+                {% for page in sorted_pages %}
+                    {% if page.nav == true %}
+                        {% if page.subtitle %}
+                            <!-- Dropdown Menu -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown{{ forloop.index }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    {{ page.title }}
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown{{ forloop.index }}" style="min-width:10px;">
+                                    {% for sub in page.subtitle %}
+                                        {% for subpage in site.pages %}
+                                            {% if subpage.title contains sub %}
+                                                <a class="dropdown-item" href="{{ subpage.url | prepend: site.baseurl }}" style="color:black; padding:5px 0px 5px 20px;">
+                                                    {{ subpage.displayName }}
+                                                </a>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endfor %}
+                                </div>
+                            </li>
+                        {% else %}
+                            <!-- Regular Page Link -->
+                            <li>
+                                <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+                            </li>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+
             </ul>
         </div>
         <!-- /.navbar-collapse -->

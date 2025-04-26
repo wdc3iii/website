@@ -6,4 +6,6 @@ disp: "True"
 description: "Musings and Thoughts about Robotics, Learning, and Controls in the Age of AI"
 header-img: img/code_background.png
 category: Blog
+nav: true
+nav_order: 2
 ---
