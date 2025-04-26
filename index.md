@@ -85,18 +85,18 @@ nav_order: 0
 <div class="carousel">
   <div class="carousel-track">
     {% for item in site.carousel %}
-      <a href="{{ item.data.url | relative_url }}">
-        <img src="{{ item.data.img | relative_url }}" alt="{{ item.title }}">
+      <a href="{{ item.url | relative_url }}">
+        <img src="{{ item.img | relative_url }}" alt="{{ item.title }}">
       </a>
     {% endfor %}
-    <!-- Duplicate first 3 images for infinite scrolling feel -->
     {% for item in site.carousel limit:3 %}
-      <a href="{{ item.data.url | relative_url }}">
-        <img src="{{ item.data.img | relative_url }}" alt="{{ item.title }}">
+      <a href="{{ item.url | relative_url }}">
+        <img src="{{ item.img | relative_url }}" alt="{{ item.title }}">
       </a>
     {% endfor %}
   </div>
 </div>
+
 
 # Welcome!
 
