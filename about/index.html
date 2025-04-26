@@ -1,0 +1,52 @@
+---
+layout: page
+title: "About"
+description: ""
+header-img: "img/code_background.png"
+nav: true
+nav_order: 5
+---
+
+<div style="display: flex; flex-direction: column; gap: 40px;">
+
+{% for member in site.data.members %}
+  {% if member.visible == true %}
+  <div style="display: flex; align-items: flex-start; gap: 20px;">
+
+    <div style="flex-shrink: 0;">
+      <img src="{{ member.img }}" style="width: 150px; border-radius: 10px;">
+    </div>
+
+    <div>
+      <h1>{{ member.name }}</h1>
+      <h2>{{ member.role }}</h2>
+
+      <div style="margin-bottom: 10px;">
+        {% if member.github %}
+          <a href="https://github.com/{{ member.github }}" title="Github" style="margin-right: 10px;">
+            <img src="{{ "/img/icons/github-icon.png" | prepend: site.baseurl }}" style="height:20px; vertical-align: middle;"> Github
+          </a>
+        {% endif %}
+        {% if member.scholar %}
+          <a href="{{ member.scholar }}" title="Google Scholar" style="margin-right: 10px;">
+            <img src="{{ "/img/icons/google_scholar.png" | prepend: site.baseurl }}" style="height:20px; vertical-align: middle;"> Google Scholar
+          </a>
+        {% endif %}
+        {% if member.arxiv %}
+          <a href="{{ member.arxiv }}" title="ArXiv">
+            <img src="{{ "/img/icons/arxiv.png" | prepend: site.baseurl }}" style="height:20px; vertical-align: middle;"> arXiv
+          </a>
+        {% endif %}
+      </div>
+
+      {% if member.bio %}
+        <p>{{ member.bio }}</p>
+      {% endif %}
+    </div>
+
+  </div>
+  <hr>
+  {% endif %}
+{% endfor %}
+
+</div>
