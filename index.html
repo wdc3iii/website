@@ -1,7 +1,11 @@
 ---
 layout: page
 ---
+
+{% assign allowed_categories = "paper,blog" | split: "," %}
+
 {% for post in paginator.posts %}
+{% if post.categories | join: "," | append: "," | split: "," | uniq | array_contains: allowed_categories %}
 <div class="post-preview">
     <a href="{{ post.url | prepend: site.baseurl }}">
         <h2 class="post-title">            {{ post.title }}
@@ -18,6 +22,7 @@ layout: page
 	</div>
 </div>
 <hr>
+{% endif %}
 {% endfor %}
 
 <!-- Pager -->
