@@ -29,7 +29,11 @@ nav_order: 0
   margin: 0 auto;
   text-align: center;
   font-size: 3.0rem;   /* ← bigger */
-  line-height: 1.8;    /* ← bigger line spacing */
+  line-height: 1.5;    /* ← bigger line spacing */
+}
+
+.welcome-content h1 {
+    font-size: 5rem;    /* ← bigger for post titles */
 }
 
 /* Posts */
@@ -53,6 +57,11 @@ nav_order: 0
   object-fit: cover;
   border-radius: 12px;
 }
+
+.post-content h1 {
+  font-size: 5rem;    /* ← bigger for post titles */
+}
+
 
 .post-content h2 {
   margin: 0;
