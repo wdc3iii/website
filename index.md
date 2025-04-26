@@ -18,9 +18,7 @@ Below, you’ll find my latest papers and blog posts.
 {% assign allowed_categories = "paper,blog" | split: "," %}
 
 {% for post in site.posts %}
-    {% assign post_cats = post.categories | join: "," | append: "," | split: "," %}
-    {% assign intersect = post_cats | uniq | array_contains: allowed_categories %}
-    {% if intersect %}
+    {% if post.categories contains "paper" or post.categories contains "blog" %}
 
 <div class="post-preview">
     <a href="{{ post.url | relative_url }}">
