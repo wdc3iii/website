@@ -18,10 +18,6 @@
         <ul class="nav navbar-nav navbar-right">
   
           <!-- Hardcoded Home button first -->
-          <li>
-            <a href="{{ "/" | relative_url }}">Home</a>
-          </li>
-  
           {% assign sorted_pages = site.pages | sort: "nav_order" %}
           {% for page in sorted_pages %}
             {% if page.nav == true and page.url != "/" %}
