@@ -85,6 +85,18 @@ nav_order: 0
   font-size: 2.4rem;  /* ← bigger for post meta text */
   color: #777;
 }
+
+.post-card img {
+  width: 100%;
+  height: auto;
+  margin: 20px 0;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.post-card img:hover {
+  transform: scale(1.05);
+}
 </style>
 
 <!-- Carousel -->
@@ -121,19 +133,25 @@ Below, you’ll find my latest papers and blog posts.
 {% for post in site.posts %}
   {% if post.categories contains "paper" or post.categories contains "blog" %}
     <div class="post-card">
-      {% if post.thumbnail-img %}
-      <img src="{{ post.thumbnail-img }}" alt="{{ post.title }}">
-      {% endif %}
       <div class="post-content">
         <a href="{{ post.url | relative_url }}">
           <h2 class="post-title">{{ post.title }}</h2>
-          {% if post.subtitle %}
-          <h3 class="post-subtitle">{{ post.subtitle }}</h3>
-          {% endif %}
         </a>
+
+        {% if post.thumbnail-img %}
+        <a href="{{ post.url | relative_url }}">
+          <img src="{{ post.thumbnail-img }}" alt="{{ post.title }}">
+        </a>
+        {% endif %}
+
+        {% if post.subtitle %}
+        <h3 class="post-subtitle">{{ post.subtitle }}</h3>
+        {% endif %}
+
         <p class="post-meta">
           Posted by {{ post.author }} on {{ post.date | date: "%B %-d, %Y" }}
         </p>
+
         <div class="notepad-index-post-tags">
           {% for tag in post.tags %}
             <a href="{{ '/search/index.html#' | append: tag | cgi_encode | relative_url }}" title="Other posts from the {{ tag | capitalize }} tag">
