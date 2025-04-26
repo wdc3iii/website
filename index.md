@@ -106,11 +106,11 @@ nav_order: 0
 <div class="carousel-debug">
   {% for item in site.carousel %}
     <div style="margin-bottom: 20px;">
-      <div><strong>Title:</strong> {{ item.title }}</div>
-      <div><strong>URL:</strong> {{ item.url }}</div>
-      <div><strong>Absolute URL:</strong> {{ item.url | absolute_url }}</div>
-      <div><strong>Relative URL:</strong> {{ item.url | relative_url }}</div>
-      <div><strong>Image Path:</strong> {{ item.img }}</div>
+      <div><strong>Title:</strong> {{ item['title'] }}</div>
+      <div><strong>URL:</strong> {{ item['url'] }}</div>
+      <div><strong>Absolute URL:</strong> {{ item['url'] | absolute_url }}</div>
+      <div><strong>Relative URL:</strong> {{ item['url'] | relative_url }}</div>
+      <div><strong>Image Path:</strong> {{ item['img'] }}</div>
     </div>
   {% endfor %}
 </div>
