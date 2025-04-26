@@ -28,7 +28,7 @@ nav_order: 0
   max-width: 800px;
   margin: 0 auto;
   text-align: center;
-  font-size: 1.5rem;   /* ← bigger */
+  font-size: 3.0rem;   /* ← bigger */
   line-height: 1.8;    /* ← bigger line spacing */
 }
 
@@ -56,18 +56,18 @@ nav_order: 0
 
 .post-content h2 {
   margin: 0;
-  font-size: 2rem;    /* ← bigger for post titles */
+  font-size: 4rem;    /* ← bigger for post titles */
 }
 
 .post-content h3 {
   margin: 5px 0;
-  font-size: 1.5rem;  /* ← bigger for subtitles */
+  font-size: 3.0rem;  /* ← bigger for subtitles */
   color: #555;
 }
 
 .post-content p {
   margin: 8px 0 0 0;
-  font-size: 1.2rem;  /* ← bigger for post meta text */
+  font-size: 2.4rem;  /* ← bigger for post meta text */
   color: #777;
 }
 </style>
