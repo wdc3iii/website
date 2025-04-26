@@ -33,10 +33,16 @@ nav_order: 5
   }
 
   .member-info img {
-    width: 250px;
+    width: 350px;
     border-radius: 10px;
     flex-shrink: 0;
     animation: fadeIn 2s ease-in;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .member-info img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   }
 
   .social-links a {
@@ -67,11 +73,28 @@ nav_order: 5
     animation: fadeIn 2s ease-in;
   }
 
+  .personal-photos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
   .personal-photos img {
     max-width: 30%;
     height: auto;
     border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease, transform 0.6s ease;
+    cursor: pointer;
+  }
+
+  .personal-photos img.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .personal-photos img:hover {
@@ -83,6 +106,32 @@ nav_order: 5
     .personal-photos img {
       max-width: 80%;
     }
+  }
+
+  #photo-modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.9);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+
+  #photo-modal img {
+    max-width: 90%;
+    max-height: 90%;
+  }
+
+  #close-modal {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+    z-index: 1001;
   }
 </style>
 
@@ -173,3 +222,45 @@ nav_order: 5
   </div>
 
 </div>
+
+<!-- Fullscreen Photo Modal -->
+<div id="photo-modal">
+  <span id="close-modal">&times;</span>
+  <img id="modal-image">
+</div>
+
+<script>
+  // Fade-in effect on scroll
+  document.addEventListener("DOMContentLoaded", function() {
+    const images = document.querySelectorAll('.personal-photos img');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    images.forEach(img => observer.observe(img));
+  });
+
+  // Fullscreen modal for photos
+  document.querySelectorAll('.personal-photos img').forEach(img => {
+    img.addEventListener('click', function() {
+      const modal = document.getElementById('photo-modal');
+      const modalImg = document.getElementById('modal-image');
+      modalImg.src = this.src;
+      modal.style.display = 'flex';
+    });
+  });
+
+  document.getElementById('close-modal').addEventListener('click', function() {
+    document.getElementById('photo-modal').style.display = 'none';
+  });
+
+  document.getElementById('photo-modal').addEventListener('click', function(e) {
+    if (e.target.id === 'photo-modal') {
+      document.getElementById('photo-modal').style.display = 'none';
+    }
+  });
+</script>
