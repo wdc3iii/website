@@ -32,6 +32,12 @@ nav_order: 0
   line-height: 1.5;    /* ← bigger line spacing */
 }
 
+#heading {
+  font-size: 3rem;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
 .welcome-content h1 {
     font-size: 5rem;    /* ← bigger for post titles */
 }
@@ -98,7 +104,7 @@ nav_order: 0
 </div>
 
 
-# Welcome!
+# <span id="heading">Welcome!</span>
 
 <div class="welcome">
 I'm Will Compton, a PhD candidate in Control and Dynamical Systems at Caltech.  
@@ -108,7 +114,7 @@ Below, you’ll find my latest papers and blog posts.
 
 ---
 
-## Research Papers and Blog Posts
+# <span id="heading">Research Papers and Blog Posts</span>
 
 {% assign allowed_categories = "paper,blog" | split: "," %}
 
