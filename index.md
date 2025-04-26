@@ -28,8 +28,8 @@ nav_order: 0
   max-width: 800px;
   margin: 0 auto;
   text-align: center;
-  font-size: 1.2rem;
-  line-height: 1.6;
+  font-size: 1.5rem;   /* ← bigger */
+  line-height: 1.8;    /* ← bigger line spacing */
 }
 
 /* Posts */
@@ -40,29 +40,34 @@ nav_order: 0
   max-width: 1000px;
   margin: 60px auto;
 }
+
 .post-card {
   display: flex;
   align-items: center;
   gap: 20px;
 }
+
 .post-card img {
   width: 200px;
   height: 130px;
   object-fit: cover;
   border-radius: 12px;
 }
+
 .post-content h2 {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 2rem;    /* ← bigger for post titles */
 }
+
 .post-content h3 {
   margin: 5px 0;
-  font-size: 1.2rem;
+  font-size: 1.5rem;  /* ← bigger for subtitles */
   color: #555;
 }
+
 .post-content p {
   margin: 8px 0 0 0;
-  font-size: 0.9rem;
+  font-size: 1.2rem;  /* ← bigger for post meta text */
   color: #777;
 }
 </style>
