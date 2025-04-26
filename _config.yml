@@ -157,4 +157,4 @@ prose:
 
 collections:
   carousel:
-    output: true
+    output: false

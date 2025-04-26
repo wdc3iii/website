@@ -33,7 +33,7 @@ nav_order: 0
 }
 
 #heading {
-  font-size: 3rem;
+  font-size: 5rem;
   margin-top: 40px;
   margin-bottom: 20px;
 }
@@ -91,13 +91,13 @@ nav_order: 0
 <div class="carousel">
   <div class="carousel-track">
     {% for item in site.carousel %}
-      <a href="{{ item.url | relative_url }}">
-        <img src="{{ item.img | relative_url }}" alt="{{ item.title }}">
+      <a href="{{ item.data.url | relative_url }}">
+        <img src="{{ item.data.img | relative_url }}" alt="{{ item.data.title }}">
       </a>
     {% endfor %}
     {% for item in site.carousel limit:3 %}
-      <a href="{{ item.url | relative_url }}">
-        <img src="{{ item.img | relative_url }}" alt="{{ item.title }}">
+      <a href="{{ item.data.url | relative_url }}">
+        <img src="{{ item.data.img | relative_url }}" alt="{{ item.data.title }}">
       </a>
     {% endfor %}
   </div>
