@@ -21,8 +21,8 @@ Below, you’ll find my latest papers and blog posts.
     {% assign post_cats = post.categories | join: "," | append: "," | split: "," %}
     {% assign intersect = post_cats | uniq | array_contains: allowed_categories %}
     {% if intersect %}
-    {% raw %}
-    <div class="post-preview">
+
+<div class="post-preview">
     <a href="{{ post.url | relative_url }}">
         <h2 class="post-title">{{ post.title }}</h2>
         {% if post.subtitle %}
@@ -34,13 +34,14 @@ Below, you’ll find my latest papers and blog posts.
     </p>
     <div class="notepad-index-post-tags">
         {% for tag in post.tags %}
-        <a href="{{ '/search/index.html#' | append: tag | cgi_encode | relative_url }}" title="Other posts from the {{ tag | capitalize }} tag">
-            {{ tag | capitalize }}
-        </a>{% unless forloop.last %}&nbsp;{% endunless %}
+            <a href="{{ '/search/index.html#' | append: tag | cgi_encode | relative_url }}" title="Other posts from the {{ tag | capitalize }} tag">
+                {{ tag | capitalize }}
+            </a>{% unless forloop.last %}&nbsp;{% endunless %}
         {% endfor %}
     </div>
-    </div>
-    <hr>
-    {% endraw %}
+</div>
+
+<hr>
+
     {% endif %}
 {% endfor %}
