@@ -91,12 +91,12 @@ nav_order: 0
 <div class="carousel">
   <div class="carousel-track">
     {% for item in site.carousel %}
-      <a href="{{ item.url | relative_url }}">
+      <a href="{{ item.link_url | relative_url }}">
         <img src="{{ item.img | relative_url }}" alt="{{ item.title }}">
       </a>
     {% endfor %}
     {% for item in site.carousel limit:3 %}
-      <a href="{{ item.url | relative_url }}">
+      <a href="{{ item.link_url | relative_url }}">
         <img src="{{ item.img | relative_url }}" alt="{{ item.title }}">
       </a>
     {% endfor %}
@@ -107,9 +107,9 @@ nav_order: 0
   {% for item in site.carousel %}
     <div style="margin-bottom: 20px;">
       <div><strong>Title:</strong> {{ item['title'] }}</div>
-      <div><strong>URL:</strong> {{ item['url'] }}</div>
-      <div><strong>Absolute URL:</strong> {{ item['url'] | absolute_url }}</div>
-      <div><strong>Relative URL:</strong> {{ item['url'] | relative_url }}</div>
+      <div><strong>URL:</strong> {{ item['link_url'] }}</div>
+      <div><strong>Absolute URL:</strong> {{ item['link_url'] | absolute_url }}</div>
+      <div><strong>Relative URL:</strong> {{ item['link_url'] | relative_url }}</div>
       <div><strong>Image Path:</strong> {{ item['img'] }}</div>
     </div>
   {% endfor %}
