@@ -14,11 +14,17 @@ nav_order: 0
   margin-bottom: 40px;
 }
 
-.carousel-track {
-  display: flex;
-  align-items: center; /* center images vertically if shorter than 300px */
+.carousel-track img {
   height: 100%;
-  transition: transform 1s ease;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+  transition: transform 0.5s ease; /* smooth zoom */
+}
+
+.carousel-track img:hover {
+  transform: scale(1.1); /* zoom 10% */
+  z-index: 2;            /* bring hovered image above neighbors */
 }
 
 .carousel-track img {
@@ -179,8 +185,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
   let index = 0;
   let currentOffset = 0;
+  let paused = false;   // <-- NEW
+
+  // When hover, pause
+  images.forEach(img => {
+    img.addEventListener('mouseenter', () => paused = true);
+    img.addEventListener('mouseleave', () => paused = false);
+    });
 
   setInterval(() => {
+    if (paused) return;  // <-- NEW
+
     const nextImage = images[index];
     const nextImageWidth = nextImage.offsetWidth;
 
@@ -189,19 +204,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     index++;
 
-    // If passed halfway (end of original set), reset
     if (index >= images.length / 2) {
       setTimeout(() => {
         track.style.transition = 'none';
         track.style.transform = 'translateX(0)';
         currentOffset = 0;
         index = 0;
-
-        // Re-enable transition for smooth next slide
         setTimeout(() => {
           track.style.transition = 'transform 1s ease';
         }, 50);
-      }, 1000); // after finishing the transition
+      }, 1000);
     }
-  }, 5000); // every 15 seconds
+  }, 15000);
 });
+</script>
