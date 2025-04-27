@@ -13,14 +13,27 @@ nav_order: 0
   position: relative;
   margin-bottom: 40px;
 }
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 .carousel-track {
   display: flex;
+  height: 100%;
   animation: scroll 30s linear infinite;
 }
+
 .carousel-track img {
-  width: 33.33vw;
-  height: 300px;
+  width: auto;
+  height: 100%;
   object-fit: cover;
+  flex-shrink: 0;
 }
 
 /* Welcome section */
