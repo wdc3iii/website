@@ -18,15 +18,17 @@ layout: default
   <div class="container" style="position: relative; z-index: 2;">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="site-heading" style="padding: 75px 0; color: white;">
-          {% if page.url == '/' %}
-            {% if site.logo %}
-              <img src="{{ site.logo }}" style="height: 150px">
+        <div class="site-heading-background">
+          <div class="site-heading" style="padding: 75px 0; color: white;">
+            {% if page.url == '/' %}
+              {% if site.logo %}
+                <img src="{{ site.logo }}" style="height: 150px">
+              {% endif %}
             {% endif %}
-          {% endif %}
-          <h1>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
-          <hr class="small">
-          <span class="subheading">{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}</span>
+            <h1>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
+            <hr class="small">
+            <span class="subheading">{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -88,6 +90,13 @@ layout: default
 .site-heading h1, .site-heading span {
   color: white;
 }
+
+.site-heading-background {
+  background: rgba(50, 50, 50, 0.6); /* semi-transparent dark gray */
+  border-radius: 12px; /* optional: rounded corners */
+  padding: 30px;
+  text-align: center;
+}
 </style>
 
 <script>
@@ -99,13 +108,14 @@ layout: default
       let currentOffset = 0;
       let paused = false;
     
+      // Pause when hovering over an image
       images.forEach(img => {
         img.addEventListener('mouseenter', () => paused = true);
         img.addEventListener('mouseleave', () => paused = false);
       });
     
       setInterval(() => {
-        if (paused) return;
+        if (paused) return; // Don't move if paused
     
         const nextImage = images[index];
         const nextImageWidth = nextImage.offsetWidth;
@@ -116,6 +126,7 @@ layout: default
     
         index++;
     
+        // Reset if reached the end
         if (index >= images.length / 2) {
           setTimeout(() => {
             track.style.transition = 'none';
@@ -127,88 +138,7 @@ layout: default
             }, 50);
           }, 1000);
         }
-      }, 8000);
-    
-      // 🔥 Dragging and Touch + Momentum
-      let isDragging = false;
-      let startX = 0;
-      let scrollStartOffset = 0;
-      let lastX = 0;
-      let velocity = 0;
-      let momentumID;
-    
-      function startDrag(x) {
-        isDragging = true;
-        paused = true;
-        startX = x;
-        scrollStartOffset = currentOffset;
-        track.style.transition = 'none';
-        cancelAnimationFrame(momentumID);
-      }
-    
-      function duringDrag(x) {
-        if (!isDragging) return;
-        const delta = x - startX;
-        currentOffset = scrollStartOffset - delta;
-        track.style.transform = `translateX(${-currentOffset}px)`;
-    
-        const now = performance.now();
-        velocity = (x - lastX) / (now - lastTime); // px/ms
-        lastX = x;
-        lastTime = now;
-      }
-    
-      function endDrag() {
-        if (!isDragging) return;
-        isDragging = false;
-        paused = false;
-        track.style.cursor = 'grab';
-    
-        // Start momentum
-        applyMomentum();
-      }
-    
-      function applyMomentum() {
-        if (Math.abs(velocity) < 0.01) return; // stop when very slow
-    
-        currentOffset -= velocity * 100; // adjust factor for strength
-        track.style.transform = `translateX(${-currentOffset}px)`;
-    
-        velocity *= 0.95; // friction
-    
-        momentumID = requestAnimationFrame(applyMomentum);
-      }
-    
-      // Mouse events
-      track.addEventListener('mousedown', (e) => {
-        track.style.cursor = 'grabbing';
-        lastX = e.pageX;
-        lastTime = performance.now();
-        startDrag(e.pageX);
-      });
-    
-      window.addEventListener('mousemove', (e) => {
-        duringDrag(e.pageX);
-      });
-    
-      window.addEventListener('mouseup', (e) => {
-        endDrag();
-      });
-    
-      // Touch events
-      track.addEventListener('touchstart', (e) => {
-        lastX = e.touches[0].pageX;
-        lastTime = performance.now();
-        startDrag(e.touches[0].pageX);
-      }, {passive: true});
-    
-      track.addEventListener('touchmove', (e) => {
-        duringDrag(e.touches[0].pageX);
-      }, {passive: true});
-    
-      track.addEventListener('touchend', (e) => {
-        endDrag();
-      });
+      }, 8000); // slide every 8 seconds
     });
-</script>
+    </script>
     
