@@ -2,7 +2,6 @@
 layout:     post
 title:      Semester 7 Coursework Summary
 author:     Will Compton
-tags: 		Coursework
 subtitle:  	Systems Lab, Control of Dynamical Systems, Robotics, Intro to Robotics and Perception
 category:   misc
 header-img: img/coursework/semester8_header.png

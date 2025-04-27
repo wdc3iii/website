@@ -2,7 +2,6 @@
 layout:     post
 title:      Self Balancing Cube
 author:     Will Compton
-tags: 		  Coursework Controls
 subtitle:  	Semester Project for Motion Control - Balance Cube on an Edge
 category:   misc
 header-img: img/selfbalancingcube/selfbalancingcube2.jpg

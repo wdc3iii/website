@@ -2,7 +2,7 @@
 layout:     post
 title:      Random Coding Stuff
 author:     Will Compton
-tags: 		Miscellaneous
+tags: 		  Code
 subtitle:  	Code Snippets which are useful to remember
 category:   misc
 ---
