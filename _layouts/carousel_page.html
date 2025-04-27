@@ -9,7 +9,7 @@ layout: default
       {% assign items = site.carousel | concat: site.carousel %}
       {% for item in items %}
         <a href="{{ item.link_url | relative_url }}">
-          <img src="{{ item.img }}" alt="{{ item.title }}">
+          <img src="{{ item.img }}" alt="{{ item.title }}" title="{{ item.title }}">
         </a>
       {% endfor %}
     </div>
