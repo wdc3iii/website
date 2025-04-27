@@ -1,40 +1,11 @@
 ---
-layout: page
+layout: carousel_page
 title: "Home"
 nav: false
 nav_order: 0
 ---
 
 <style>
-/* Carousel */
-.carousel {
-  overflow: hidden;
-  height: 300px; /* controls max visible height */
-  position: relative;
-  margin-bottom: 40px;
-}
-
-.carousel-track {
-  display: flex;
-  height: 100%;
-  align-items: center; /* optional, center images vertically */
-  transition: transform 1s ease; /* smooth transition */
-}
-
-.carousel-track img {
-  height: 100%;
-  width: auto;
-  object-fit: contain;
-  flex-shrink: 0;
-  transition: transform 0.5s ease; /* smooth zoom */
-}
-
-.carousel-track img:hover {
-  transform: scale(1.1); /* zoom 10% */
-  z-index: 2;            /* bring hovered image above neighbors */
-}
-
-
 /* Welcome section */
 .welcome {
   max-width: 800px;
@@ -111,22 +82,6 @@ nav_order: 0
 }
 </style>
 
-<!-- Carousel -->
-<div class="carousel">
-  <div class="carousel-track">
-    {% for item in site.carousel %}
-      <a href="{{ item.link_url | relative_url }}">
-        <img src="{{ item.img }}" alt="{{ item.title }}">
-      </a>
-    {% endfor %}
-    {% for item in site.carousel %}
-      <a href="{{ item.link_url | relative_url }}">
-        <img src="{{ item.img }}" alt="{{ item.title }}">
-      </a>
-    {% endfor %}
-  </div>
-</div>
-
 # <span id="heading">Welcome!</span>
 
 <div class="welcome">
@@ -177,44 +132,3 @@ Below, you’ll find my latest papers and blog posts.
   {% endif %}
 {% endfor %}
 </div>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const track = document.querySelector('.carousel-track');
-  const images = document.querySelectorAll('.carousel-track img');
-
-  let index = 0;
-  let currentOffset = 0;
-  let paused = false;   // <-- NEW
-
-  // When hover, pause
-  images.forEach(img => {
-    img.addEventListener('mouseenter', () => paused = true);
-    img.addEventListener('mouseleave', () => paused = false);
-    });
-
-  setInterval(() => {
-    if (paused) return;  // <-- NEW
-
-    const nextImage = images[index];
-    const nextImageWidth = nextImage.offsetWidth;
-
-    currentOffset += nextImageWidth;
-    track.style.transform = `translateX(${-currentOffset}px)`;
-
-    index++;
-
-    if (index >= images.length / 2) {
-      setTimeout(() => {
-        track.style.transition = 'none';
-        track.style.transform = 'translateX(0)';
-        currentOffset = 0;
-        index = 0;
-        setTimeout(() => {
-          track.style.transition = 'transform 1s ease';
-        }, 50);
-      }, 1000);
-    }
-  }, 15000);
-});
-</script>

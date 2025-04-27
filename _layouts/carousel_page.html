@@ -1,0 +1,214 @@
+---
+layout: default
+---
+
+<!-- Page Header -->
+<header class="intro-header">
+  <div class="carousel">
+    <div class="carousel-track">
+      {% assign items = site.carousel | concat: site.carousel %}
+      {% for item in items %}
+        <a href="{{ item.link_url | relative_url }}">
+          <img src="{{ item.img }}" alt="{{ item.title }}">
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="container" style="position: relative; z-index: 2;">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="site-heading" style="padding: 75px 0; color: white;">
+          {% if page.url == '/' %}
+            {% if site.logo %}
+              <img src="{{ site.logo }}" style="height: 150px">
+            {% endif %}
+          {% endif %}
+          <h1>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
+          <hr class="small">
+          <span class="subheading">{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      {{ content }}
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<!-- Carousel + Drag Scripts -->
+<style>
+/* Carousel */
+.intro-header {
+  position: relative;
+  overflow: hidden;
+  height: 500px; /* adjust as needed */
+}
+
+.carousel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.carousel-track {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  transition: transform 1s ease;
+}
+
+.carousel-track img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+  padding: 0 10px;
+  transition: transform 0.5s ease;
+  cursor: grab;
+}
+
+.carousel-track img:hover {
+  transform: scale(1.1);
+  z-index: 2;
+}
+
+/* Content */
+.site-heading h1, .site-heading span {
+  color: white;
+}
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const track = document.querySelector('.carousel-track');
+      const images = document.querySelectorAll('.carousel-track img');
+    
+      let index = 0;
+      let currentOffset = 0;
+      let paused = false;
+    
+      images.forEach(img => {
+        img.addEventListener('mouseenter', () => paused = true);
+        img.addEventListener('mouseleave', () => paused = false);
+      });
+    
+      setInterval(() => {
+        if (paused) return;
+    
+        const nextImage = images[index];
+        const nextImageWidth = nextImage.offsetWidth;
+    
+        currentOffset += nextImageWidth;
+        track.style.transition = 'transform 1s ease';
+        track.style.transform = `translateX(${-currentOffset}px)`;
+    
+        index++;
+    
+        if (index >= images.length / 2) {
+          setTimeout(() => {
+            track.style.transition = 'none';
+            track.style.transform = 'translateX(0)';
+            currentOffset = 0;
+            index = 0;
+            setTimeout(() => {
+              track.style.transition = 'transform 1s ease';
+            }, 50);
+          }, 1000);
+        }
+      }, 8000);
+    
+      // 🔥 Dragging and Touch + Momentum
+      let isDragging = false;
+      let startX = 0;
+      let scrollStartOffset = 0;
+      let lastX = 0;
+      let velocity = 0;
+      let momentumID;
+    
+      function startDrag(x) {
+        isDragging = true;
+        paused = true;
+        startX = x;
+        scrollStartOffset = currentOffset;
+        track.style.transition = 'none';
+        cancelAnimationFrame(momentumID);
+      }
+    
+      function duringDrag(x) {
+        if (!isDragging) return;
+        const delta = x - startX;
+        currentOffset = scrollStartOffset - delta;
+        track.style.transform = `translateX(${-currentOffset}px)`;
+    
+        const now = performance.now();
+        velocity = (x - lastX) / (now - lastTime); // px/ms
+        lastX = x;
+        lastTime = now;
+      }
+    
+      function endDrag() {
+        if (!isDragging) return;
+        isDragging = false;
+        paused = false;
+        track.style.cursor = 'grab';
+    
+        // Start momentum
+        applyMomentum();
+      }
+    
+      function applyMomentum() {
+        if (Math.abs(velocity) < 0.01) return; // stop when very slow
+    
+        currentOffset -= velocity * 100; // adjust factor for strength
+        track.style.transform = `translateX(${-currentOffset}px)`;
+    
+        velocity *= 0.95; // friction
+    
+        momentumID = requestAnimationFrame(applyMomentum);
+      }
+    
+      // Mouse events
+      track.addEventListener('mousedown', (e) => {
+        track.style.cursor = 'grabbing';
+        lastX = e.pageX;
+        lastTime = performance.now();
+        startDrag(e.pageX);
+      });
+    
+      window.addEventListener('mousemove', (e) => {
+        duringDrag(e.pageX);
+      });
+    
+      window.addEventListener('mouseup', (e) => {
+        endDrag();
+      });
+    
+      // Touch events
+      track.addEventListener('touchstart', (e) => {
+        lastX = e.touches[0].pageX;
+        lastTime = performance.now();
+        startDrag(e.touches[0].pageX);
+      }, {passive: true});
+    
+      track.addEventListener('touchmove', (e) => {
+        duringDrag(e.touches[0].pageX);
+      }, {passive: true});
+    
+      track.addEventListener('touchend', (e) => {
+        endDrag();
+      });
+    });
+</script>
+    
