@@ -176,26 +176,25 @@ Below, you’ll find my latest papers and blog posts.
 document.addEventListener('DOMContentLoaded', function() {
   const track = document.querySelector('.carousel-track');
   const images = document.querySelectorAll('.carousel-track img');
-  const imageWidth = images[0].offsetWidth;
 
   let index = 0;
 
   setInterval(() => {
     index++;
-    track.style.transform = `translateX(${-index * imageWidth}px)`;
 
-    // If at end, reset back to start
+    const moveAmount = track.clientWidth;  // move one full carousel width
+    track.style.transform = `translateX(${-index * moveAmount}px)`;
+
     if (index >= images.length / 2) {  // because you duplicated images
       setTimeout(() => {
         track.style.transition = 'none';
         track.style.transform = 'translateX(0)';
         index = 0;
-        // Re-enable smooth transition after reset
         setTimeout(() => {
           track.style.transition = 'transform 1s ease';
         }, 50);
-      }, 1000); // Wait for transition to finish
+      }, 1000); // wait for transition to finish
     }
-  }, 15000); // every 15 seconds
+  }, 5000); // every 15s
 });
 </script>
