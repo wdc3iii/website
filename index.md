@@ -113,7 +113,7 @@ nav_order: 0
         <img src="{{ item.img }}" alt="{{ item.title }}">
       </a>
     {% endfor %}
-    {% for item in site.carousel limit:3 %}
+    {% for item in site.carousel %}
       <a href="{{ item.link_url | relative_url }}">
         <img src="{{ item.img }}" alt="{{ item.title }}">
       </a>
@@ -178,23 +178,30 @@ document.addEventListener('DOMContentLoaded', function() {
   const images = document.querySelectorAll('.carousel-track img');
 
   let index = 0;
+  let currentOffset = 0;
 
   setInterval(() => {
+    const nextImage = images[index];
+    const nextImageWidth = nextImage.offsetWidth;
+
+    currentOffset += nextImageWidth;
+    track.style.transform = `translateX(${-currentOffset}px)`;
+
     index++;
 
-    const moveAmount = track.clientWidth;  // move one full carousel width
-    track.style.transform = `translateX(${-index * moveAmount}px)`;
-
-    if (index >= images.length / 2) {  // because you duplicated images
+    // If passed halfway (end of original set), reset
+    if (index >= images.length / 2) {
       setTimeout(() => {
         track.style.transition = 'none';
         track.style.transform = 'translateX(0)';
+        currentOffset = 0;
         index = 0;
+
+        // Re-enable transition for smooth next slide
         setTimeout(() => {
           track.style.transition = 'transform 1s ease';
         }, 50);
-      }, 1000); // wait for transition to finish
+      }, 1000); // after finishing the transition
     }
-  }, 5000); // every 15s
+  }, 5000); // every 15 seconds
 });
-</script>
