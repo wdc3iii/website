@@ -14,23 +14,14 @@ nav_order: 0
   margin-bottom: 40px;
 }
 
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
 .carousel-track {
   display: flex;
   height: 100%;
-  animation: scroll 30s linear infinite;
+  transition: transform 1s ease; /* Smooth when moving */
 }
 
 .carousel-track img {
-  width: auto;
+  width: 33.33vw;  /* Each image 1/3 screen wide */
   height: 100%;
   object-fit: cover;
   flex-shrink: 0;
@@ -178,3 +169,31 @@ Below, you’ll find my latest papers and blog posts.
   {% endif %}
 {% endfor %}
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const track = document.querySelector('.carousel-track');
+  const images = document.querySelectorAll('.carousel-track img');
+  const imageWidth = images[0].offsetWidth;
+
+  let index = 0;
+
+  setInterval(() => {
+    index++;
+    track.style.transform = `translateX(${-index * imageWidth}px)`;
+
+    // If at end, reset back to start
+    if (index >= images.length / 2) {  // because you duplicated images
+      setTimeout(() => {
+        track.style.transition = 'none';
+        track.style.transform = 'translateX(0)';
+        index = 0;
+        // Re-enable smooth transition after reset
+        setTimeout(() => {
+          track.style.transition = 'transform 1s ease';
+        }, 50);
+      }, 1000); // Wait for transition to finish
+    }
+  }, 15000); // every 15 seconds
+});
+</script>
