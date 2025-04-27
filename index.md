@@ -14,6 +14,13 @@ nav_order: 0
   margin-bottom: 40px;
 }
 
+.carousel-track {
+  display: flex;
+  height: 100%;
+  align-items: center; /* optional, center images vertically */
+  transition: transform 1s ease; /* smooth transition */
+}
+
 .carousel-track img {
   height: 100%;
   width: auto;
@@ -27,13 +34,6 @@ nav_order: 0
   z-index: 2;            /* bring hovered image above neighbors */
 }
 
-.carousel-track img {
-  height: 100%;           /* fill vertically */
-  width: auto;            /* let width adjust automatically */
-  object-fit: contain;    /* show whole image, no cutting */
-  flex-shrink: 0;         /* don't squish */
-  padding: 0 10px;        /* optional: slight side padding between images */
-}
 
 /* Welcome section */
 .welcome {
