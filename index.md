@@ -9,22 +9,24 @@ nav_order: 0
 /* Carousel */
 .carousel {
   overflow: hidden;
-  height: 300px;
+  height: 300px; /* controls max visible height */
   position: relative;
   margin-bottom: 40px;
 }
 
 .carousel-track {
   display: flex;
+  align-items: center; /* center images vertically if shorter than 300px */
   height: 100%;
-  transition: transform 1s ease; /* Smooth when moving */
+  transition: transform 1s ease;
 }
 
 .carousel-track img {
-  width: 33.33vw;  /* Each image 1/3 screen wide */
-  height: 100%;
-  object-fit: cover;
-  flex-shrink: 0;
+  height: 100%;           /* fill vertically */
+  width: auto;            /* let width adjust automatically */
+  object-fit: contain;    /* show whole image, no cutting */
+  flex-shrink: 0;         /* don't squish */
+  padding: 0 10px;        /* optional: slight side padding between images */
 }
 
 /* Welcome section */
