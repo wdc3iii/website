@@ -9,6 +9,21 @@ thumbnail-img: img/code_background.png
 ---
 <!-- Start Writing Below in Markdown -->
 
+This post summarizes the content and contributions of my recent paper demonstrating robust and stable hopping on the robot platform ARCHER, accepted and presented at the International Conference on Intelligent Robots and Systems held in Abu Dhabi, United Arab Emerates in 2024. We first **motivate** the problem by highlighting the difficulties of controlling legged or hopping robotic systems. We then establish a zero dynamics policy, in the style of \cite{} (also discussed on [my website](link_to_paper)), to stabilize the hopping robot. Finally, we demonstrate the effectiveness of this controller on ARCHER.
+
+The full text of the paper is available from [IEEE](https://ieeexplore.ieee.org/document/10801322), or on [arXiv](https://arxiv.org/abs/2409.06125). 
+
+Video...
+
+# Difficulties of Controlling Hopping Robots (ARCHER)
+
+# Hybrid Zero Dynamics Policies 
+
+# Robust and Agile Stabilization of Hopping Robots (ARCHER)
+
+---
+
+
 # Robust Agility via Learned Zero Dynamics Policies
 
 **Authors**: Noel Csomay-Shanklin\*, **William D. Compton**\*, Ivan Dario Jimenez Rodriguez\*, Eric R. Ambrose, Yisong Yue, Aaron D. Ames  

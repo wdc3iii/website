@@ -9,7 +9,21 @@ thumbnail-img: img/code_background.png
 ---
 <!-- Start Writing Below in Markdown -->
 
-# Dynamic Tube MPC: Learning Tube Dynamics with Massively Parallel Simulation for Robust Safety in Practice
+This post summarizes the content and contributions of my recent paper on Dynamic Tube MPC, accepted and to be presented at the International Conference on Robotics and Automation 2025, in Atlanta, Georgia. We begin by **motivating** the problem by considering 1) rational of the planner-tracker paradigm and 2) issues with feasibility and conservatism with classical tube MPC. Secondly, we introduce a **learning problem**, leveraging massively parallel simulation to learn tube dynamics, to optimize collision free trajectories for the system. Finally, we **deploy** the method on a hopping robot, ARCHER. 
+
+The full text paper can be found on [arXiv](https://arxiv.org/abs/2411.15350).
+
+Include video...
+
+# Motivating Dynamic Tube MPC: Planner-Tracker Paradigm and Classical Tube MPC
+
+# Learning Tube Dynamics
+
+# Optimizing Tube Dynamics
+
+# Deployment on the ARCHER Platform
+
+---
 
 **Authors**: **William D. Compton**, Noel Csomay-Shanklin, Cole Johnson, Aaron D. Ames
 

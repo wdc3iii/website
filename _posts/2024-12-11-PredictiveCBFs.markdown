@@ -9,6 +9,23 @@ thumbnail-img: img/code_background.png
 ---
 <!-- Start Writing Below in Markdown -->
 
+This post summarizes the content and contributions of my recent paper leveraging simulation, prediction, and learning to achieve safety on complex systems via reduced order modeling, accepted and to be presented at the Conference on Learning for Decisions and Control held in Ann Arbor, Michigan in 2025. We first **motivate** the problem by highlighting the difficulties of achieving safety on complex systems. We then establish a theoretical basis to robustify a control barrier function derived on a reduced order model to achieve safety on the full order model, termed a Predictive Control Barrier Function. Finally, we present a learning algorithm, which improves real-time tractability and enhances sim-to-real transfer via domain randomization. We demonstrate the method on the hopping robot ARCHER. 
+
+
+The full text of the paper is available from on [arXiv](https://arxiv.org/abs/2412.04658). 
+
+Video...
+
+# Problems with Safety on Complex Systems
+
+# Predictive Control Barrier Functions (PCBFs)
+
+# Learning Predictive CBFs
+
+# Deploying PCBFs on the ARCHER Platform
+
+---
+
 # Learning for Layered Safety-Critical Control with Predictive Control Barrier Functions
 
 **Authors**: **William D. Compton**, Max H. Cohen, Aaron D. Ames

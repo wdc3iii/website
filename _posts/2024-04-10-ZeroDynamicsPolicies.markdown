@@ -9,12 +9,22 @@ thumbnail-img: img/code_background.png
 ---
 <!-- Start Writing Below in Markdown -->
 
-# Constructive Nonlinear Control of Underactuated Systems via Zero Dynamics Policies
+This post summarizes the content and contributions of my recent paper on zero dynamics policies, accepted and presented at the Control and Decisions Conference held in Milan, Italy in 2024. We first **motivate** the problem by investigating the difficulty of constructing outputs with stable zero dynamics for underactuated systems, then demonstrate a **constructive** method for synthesizing these outputs on linear systems, a control methodology we denote a **zero dynamics policy**. Similarity between the linear and nonlinear system about the equilibrium allows this method to be be applied to nonlinear systems, and we finish by proposing a **learning method** to construct zero dynamics policies with larger regions of attraction.
 
-**Authors**: **William Compton**\*, Ivan Dario Jimenez Rodriguez\*, Noel Csomay-Shanklin\*, Yisong Yue, Aaron D. Ames  
-\* Equal contribution
+The full text of the paper is available from [IEEE](https://ieeexplore.ieee.org/abstract/document/10886411), or on [arXiv](https://arxiv.org/abs/2408.14749). 
+
+The presentation, given at CDC 2024, is available [here](link_to_ppt).
 
 ---
+
+# Motivation for Zero Dynamics Policies: Stabilizing Underactuated Systems
+
+# Constructing Zero Dynamics Policies from the Linearization
+
+# Local Zero Dynamics Policies for Nonlinear Systems via Linearization
+
+# Learning Zero Dynamics Policies via Optimal Control
+
 
 ## Overview
 
