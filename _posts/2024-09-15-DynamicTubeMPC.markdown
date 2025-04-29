@@ -23,7 +23,10 @@ When the state or dynamics of the robot is complicated, for instance in the case
 In this case, roboticists will typically turn to a durastically simplified model of the robot to solve the planning problem, typically one of:
  - planar state representation $x \in \mathcal{R}^$, no dynamics (kinematic connectivity only)
  - reduced state representation, simple dynamics (single/double integrator, unicycle)
-
+Whatever plan is created using this model representation, called the **planning model** will then be passed down to a tracking controller, designed to control the **tracking model** to follow the plan. 
+The planner-tracker paradigm, quite old in robotics, has been treated quite nicely by some of [Claire Tomlin's work](https://arxiv.org/abs/1703.07373).
+Critically, because the planner and tracker do not share the same dynamics, the tracking model **will incur error** when it tracks the plan.
+This error can lead to collisions in the environment. 
 
 # Learning Tube Dynamics
 
