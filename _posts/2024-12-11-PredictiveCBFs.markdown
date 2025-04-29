@@ -2,11 +2,12 @@
 layout:     post
 title:      Learning for Layered Safety-Critical Control with Predictive Control Barrier Functions
 author:     Will Compton
-tags: 		Research Hopper
+tags: 		  Research Hopper
 subtitle:  	Conference on Learning for Decisions and Control 2025
 category:   paper
 thumbnail-img: img/code_background.png
 permalink:  /papers/predictive-control-barrier-functions/
+description: "Predictive Control Barrier Functions (PCBFs) enable safety-critical control of complex systems by combining reduced-order models, predictive simulation, and learning. Presented at L4DC 2025, validated on the ARCHER hopping robot."
 ---
 <!-- Start Writing Below in Markdown -->
 

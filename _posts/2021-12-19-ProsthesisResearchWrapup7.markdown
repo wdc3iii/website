@@ -5,6 +5,7 @@ author:     Will Compton
 subtitle:  	Summary of Research and Impact at EPIC Lab
 category:   misc
 permalink:  /misc/prothesis-research-sem7/
+description: "Summary of knee-ankle prosthesis research at EPIC Lab, Georgia Tech."
 ---
 <!-- Start Writing Below in Markdown -->
 

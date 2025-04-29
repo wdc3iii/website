@@ -7,6 +7,7 @@ subtitle:  	International Conference on Intelligent Robots and Systems 2024
 category:   paper
 thumbnail-img: img/code_background.png
 permalink:  /papers/agile-hopping/
+description: "Zero Dynamics Policies enable robust and agile control of hybrid underactuated systems, achieving stable and dynamic hopping on the ARCHER robot. Presented at IROS 2024 in Abu Dhabi."
 ---
 <!-- Start Writing Below in Markdown -->
 

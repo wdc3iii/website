@@ -6,6 +6,7 @@ tags: 		  Code
 subtitle:  	Code Snippets which are useful to remember
 category:   misc
 permalink:  misc/coding-stuff/
+description: "Coding tips and tricks to reference rather than remember."
 ---
 <!-- Start Writing Below in Markdown -->
 

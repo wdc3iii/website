@@ -6,6 +6,7 @@ subtitle:  	Control of Motion Systems, Robotic Intelligence & Path Planning, Cre
 category:   misc
 header-img: img/coursework/semester8_header.png
 permalink:  /misc/coursework-sem8/
+description: "Summary of coursework taken in final semester a Georgia Tech."
 ---
 <!-- Start Writing Below in Markdown -->
 

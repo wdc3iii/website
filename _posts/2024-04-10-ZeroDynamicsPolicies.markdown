@@ -7,6 +7,7 @@ subtitle:  	Control and Decisions Conference 2024
 category:   paper
 thumbnail-img: img/code_background.png
 permalink:  /papers/zero-dynamics-policies/
+description: "Zero Dynamics Policies (ZDPs) provide a constructive framework for stabilizing underactuated nonlinear systems by learning stable, invariant manifolds. Presented at CDC 2024, validated on nonlinear cartpole experiments."
 ---
 <!-- Start Writing Below in Markdown -->
 

@@ -6,6 +6,7 @@ subtitle:  	Design of an Artifically Intelligent Agent to Play Reconnaissance Bl
 category:   misc
 header-img: img/reconblindchess/chess1.png
 permalink:  /misc/recon-blind-chess/
+description: "Reconnaissance Blind Multichess (RBMC) agent using particle filters, information-driven sensing, and minimax search to manage uncertainty and strategy. Project developed at Georgia Tech."
 ---
 <!-- Start Writing Below in Markdown -->
 

@@ -6,6 +6,7 @@ subtitle:  	Semester Project for Motion Control - Balance Cube on an Edge
 category:   misc
 header-img: img/selfbalancingcube/selfbalancingcube2.jpg
 permalink:  /misc/self-balancing-cube/
+description: "Self-balancing cube project applying linear control and state-space pole placement to stabilize an edge-balanced cube, inspired by Cubli. Developed with Teensy, ODrive, and IMU-based feedback."
 ---
 <!-- Start Writing Below in Markdown -->
 

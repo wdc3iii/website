@@ -1,6 +1,7 @@
 ---
 layout: carousel_page
-title: "Home"
+title: "Will Compton | Robotics and Control Research"
+description: "Official website of Will Compton. Robotics, Control, Machine Learning. Research at Caltech, with a focus on dynamic locomotion and learning-based control."
 nav: false
 nav_order: 0
 ---

@@ -6,7 +6,7 @@ subtitle:  	Senior Capstone Design - A Child's Wearable for Safety Monitoring
 category:   misc
 header-img: img/pomdot/pomdot_header.png
 permalink:  /misc/location-monitoring-device/
-
+description: "Pomdot is a children's safety wearable designed for real-time location tracking, durability, and long battery life. Developed as part of Georgia Tech's Create-X Capstone program."
 ---
 <!-- Start Writing Below in Markdown -->
 

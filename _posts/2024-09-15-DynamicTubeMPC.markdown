@@ -7,6 +7,7 @@ subtitle:  	International Conference on Robotics and Automation 2025
 category:   paper
 thumbnail-img: img/code_background.png
 permalink:  /papers/dynamic-tube-mpc/
+description: "Dynamic Tube MPC learns how tracking error evolves along a plan, enabling safe and agile robot navigation with dynamic safety margins. Presented at ICRA 2025, validated on the ARCHER hopping robot."
 ---
 <!-- Start Writing Below in Markdown -->
 

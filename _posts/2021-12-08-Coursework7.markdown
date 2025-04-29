@@ -6,6 +6,7 @@ subtitle:  	Systems Lab, Control of Dynamical Systems, Robotics, Intro to Roboti
 category:   misc
 header-img: img/coursework/semester8_header.png
 permalink:  /misc/coursework-sem7/
+description: "Summary of coursework taken in second-to-last semester a Georgia Tech."
 ---
 <!-- Start Writing Below in Markdown -->
 
