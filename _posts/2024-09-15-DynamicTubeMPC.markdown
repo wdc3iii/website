@@ -23,6 +23,7 @@ The full text paper can be found on [arXiv](https://arxiv.org/abs/2411.15350).
     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
   </iframe>
 </div>
+
 # Motivating Dynamic Tube MPC: Planner-Tracker Paradigm and Classical Tube MPC
 
 When planning paths in cluttered environments, roboticists have a a few main of tools at thier disposal: graph search methods (including A* on a discrete grid, and RRT to construct a graph, followed by A* to search it), heuristic methods (artificial potential fields, ...) and optimization based methods (model predictive control).
@@ -30,10 +31,28 @@ When the state or dynamics of the robot is complicated, for instance in the case
 In this case, roboticists will typically turn to a durastically simplified model of the robot to solve the planning problem, typically one of:
  - planar state representation $x \in \mathcal{R}^$, no dynamics (kinematic connectivity only)
  - reduced state representation, simple dynamics (single/double integrator, unicycle)
+
 Whatever plan is created using this model representation, called the **planning model** will then be passed down to a tracking controller, designed to control the **tracking model** to follow the plan. 
 The planner-tracker paradigm, quite old in robotics, has been treated quite nicely by some of [Claire Tomlin's work](https://arxiv.org/abs/1703.07373).
 Critically, because the planner and tracker do not share the same dynamics, the tracking model **will incur error** when it tracks the plan.
-This error can lead to collisions in the environment. 
+This error can lead to collisions in the environment, if not accounted for correctly.
+
+The easiest and fastest adjustment to account for the model mismatch is the buffer all of the obstacles in the environment by a heuristic margin.
+If this margin is large enough, meaning that the true system will stay with a **tube** of this size around the nominal trajectory, then it will avoid collision with the environment; this approach is known as tube model predictive control (Tube MPC) - or more specifically, Fixed Tube MPC.
+From a theoretical perspective, if the tracking controller can establish a robust tracking invariant around the nominal trajectory, then planning a trajectory such that the tube, created by buffering the plan by the tracking invariant, lies in the free space gives guaranteed collision free paths.
+
+Insert tubes figure...
+
+However, fixing the size of the tube a-priori can lead to significant issues, namely overly conservative behaviors, or unecessary infeasibility, as shown in the figure above. 
+Our key insight is the fact that the size of the tracking tube **typically depends on the trajectory you are trying to track**.
+For instance, a drone can track a hover point quite well - however, it will incur larger tracking error if you command it to turn a sharp right angle at maximum speed.
+If I want a tracking invariant for both of these behaviors, it will be as large as the biggest errors collected during the most aggressive manuevers - but this tube is incredibly conservative for less dynamic, slower behaviors.
+The conservative nature of the tube for slower behaviors can lead to planners either 1) not being able to find a route, or 2) require a large excess of conservative behavior, when an aggressive route to the goal exists.
+
+We propose a method to learn a **dynamic** representation of the tracking invariant tube, which depends on both a **history** of previous errors, and information about the plan being tracked.
+This results in smaller tubes for easier to track paths, and larger tubes for more difficult to track paths. 
+We then integrate this dynamic tube into a Dynamic Tube MPC planner, which generates plans such that the dynamic tube lies is the free space.
+This leads to behaviors where the robot moves at maximum agility when far from obstacles, but slows down to safely navigate narrow gaps and tight spaces, enabling safe and dynamic navigation of cluttered environments.
 
 # Learning Tube Dynamics
 
