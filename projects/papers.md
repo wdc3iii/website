@@ -8,4 +8,5 @@ header-img: img/code_background.png
 category: paper
 nav: true
 nav_order: 1
+permalink: /papers
 ---

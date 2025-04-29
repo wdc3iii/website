@@ -5,6 +5,7 @@ author:     Will Compton
 subtitle:  	Senior Capstone Design - A Child's Wearable for Safety Monitoring
 category:   misc
 header-img: img/pomdot/pomdot_header.png
+permalink:  /misc/location-monitoring-device
 
 ---
 <!-- Start Writing Below in Markdown -->

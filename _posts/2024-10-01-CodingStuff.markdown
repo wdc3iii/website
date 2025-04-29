@@ -5,6 +5,7 @@ author:     Will Compton
 tags: 		  Code
 subtitle:  	Code Snippets which are useful to remember
 category:   misc
+permalink:  misc/coding-stuff
 ---
 <!-- Start Writing Below in Markdown -->
 

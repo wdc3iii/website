@@ -8,4 +8,5 @@ header-img: img/code_background.png
 category: misc
 nav: true
 nav_order: 3
+permalink: /misc
 ---

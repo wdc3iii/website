@@ -6,6 +6,7 @@ tags: 		Research Hopper
 subtitle:  	International Conference on Intelligent Robots and Systems 2024
 category:   paper
 thumbnail-img: img/code_background.png
+permalink:  /papers/agile-hopping
 ---
 <!-- Start Writing Below in Markdown -->
 

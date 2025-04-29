@@ -6,6 +6,7 @@ tags: 		Research Hopper
 subtitle:  	Conference on Learning for Decisions and Control 2025
 category:   paper
 thumbnail-img: img/code_background.png
+permalink:  /papers/predictive-control-barrier-functions
 ---
 <!-- Start Writing Below in Markdown -->
 

@@ -5,6 +5,7 @@ author:     Will Compton
 subtitle:  	Semester Project for Motion Control - Balance Cube on an Edge
 category:   misc
 header-img: img/selfbalancingcube/selfbalancingcube2.jpg
+permalink:  /misc/self-balancing-cube
 ---
 <!-- Start Writing Below in Markdown -->
 

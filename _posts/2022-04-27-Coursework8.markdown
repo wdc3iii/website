@@ -5,6 +5,7 @@ author:     Will Compton
 subtitle:  	Control of Motion Systems, Robotic Intelligence & Path Planning, CreateX Capstone
 category:   misc
 header-img: img/coursework/semester8_header.png
+permalink:  /misc/coursework-sem8
 ---
 <!-- Start Writing Below in Markdown -->
 

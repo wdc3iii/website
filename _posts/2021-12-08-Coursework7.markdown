@@ -5,6 +5,7 @@ author:     Will Compton
 subtitle:  	Systems Lab, Control of Dynamical Systems, Robotics, Intro to Robotics and Perception
 category:   misc
 header-img: img/coursework/semester8_header.png
+permalink:  /misc/coursework-sem7
 ---
 <!-- Start Writing Below in Markdown -->
 

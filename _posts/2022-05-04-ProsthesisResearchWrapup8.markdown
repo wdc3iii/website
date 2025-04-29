@@ -4,6 +4,7 @@ title:      Semester 8 Prosthesis Research Wrap-Up
 author:     Will Compton
 subtitle:  	Summary of Research and Impact at EPIC Lab
 category:   misc
+permalink:  /misc/prothesis-research-sem8
 ---
 <!-- Start Writing Below in Markdown -->
 
