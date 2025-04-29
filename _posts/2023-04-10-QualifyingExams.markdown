@@ -6,7 +6,7 @@ tags: 		Exams References
 subtitle:  	Content and Preparation
 category:   blog
 thumbnail-img: img/code_background.png
-permalink:  /blog/qualifying-exams
+permalink:  /blog/qualifying-exams/
 ---
 <!-- Start Writing Below in Markdown -->
 # Table of Contents

@@ -6,7 +6,7 @@ tags: 		Research Hopper
 subtitle:  	International Conference on Robotics and Automation 2025
 category:   paper
 thumbnail-img: img/code_background.png
-permalink:  /papers/dynamic-tube-mpc
+permalink:  /papers/dynamic-tube-mpc/
 ---
 <!-- Start Writing Below in Markdown -->
 
@@ -14,9 +14,16 @@ This post summarizes the content and contributions of my recent paper on Dynamic
 
 The full text paper can be found on [arXiv](https://arxiv.org/abs/2411.15350).
 
-Include video...
+<iframe width="560" height="315" src="https://www.youtube.com/embed/e-aXDbXGfVQ?si=2Fd_8G59LiZSGWIb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 # Motivating Dynamic Tube MPC: Planner-Tracker Paradigm and Classical Tube MPC
+
+When planning paths in cluttered environments, roboticists have a a few main of tools at thier disposal: graph search methods (including A* on a discrete grid, and RRT to construct a graph, followed by A* to search it), heuristic methods (artificial potential fields, ...) and optimization based methods (model predictive control).
+When the state or dynamics of the robot is complicated, for instance in the case of a humaniod robot or a hopping robot, none of these methods are computationally tractible to solve planning problems; even at a few dimensions, the curse of dimensionality indicates that the space will be too large to search through, and too nonlinear, nonconvex, and long horizon to optimize for.
+In this case, roboticists will typically turn to a durastically simplified model of the robot to solve the planning problem, typically one of:
+ - planar state representation $x \in \mathcal{R}^$, no dynamics (kinematic connectivity only)
+ - reduced state representation, simple dynamics (single/double integrator, unicycle)
+
 
 # Learning Tube Dynamics
 

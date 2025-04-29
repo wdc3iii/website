@@ -8,5 +8,5 @@ header-img: img/code_background.png
 category: blog
 nav: true
 nav_order: 2
-permalink: /blog
+permalink: /blog/
 ---
