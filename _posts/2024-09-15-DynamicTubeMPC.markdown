@@ -81,11 +81,7 @@ To learn the tube dynamics, we collect a large dataset containing trajectories o
 These datasets take the form $$\mathcal{D} = \{\mathbf{z}_{0:\bar{N}+1}, \mathbf{v}_{0:\bar{N}}, \mathbf{\Pi}(\mathbf{x}_{0:\bar{N}+1})\}$$.
 From this dataset, we train a neural network to predict a tube which the system will stay within around a given planned trajectory. We define the tube dynamics recursively via:
 
-{% raw %}
-\[
-w_{j+1} = f_w(\tilde{e}_{j-H:j}, \mathbf{z}_{j-H,j}, \mathbf{v}_{j-H,j})
-\]
-{% endraw %}
+$$w_{j+1} = f_w(\tilde{e}_{j-H:j}, \mathbf{z}_{j-H,j}, \mathbf{v}_{j-H,j})$$
 
 ![The tube dynamics take in an error history and a planning model state and input history and trajectory, and will predict future errors.]({{ site.baseurl }}/img/dtmpc/tube_dyn.jpg)
 
