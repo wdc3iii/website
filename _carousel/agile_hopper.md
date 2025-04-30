@@ -1,5 +1,5 @@
 ---
-title: "Hopper ZDP Tube MPC"
+title: "Hopper ZDP"
 img: img/carousel/code_background.png
-link_url: /paper/2024/04/10/HopperZDP
+link_url: /papers/agile-hopping/
 ---
