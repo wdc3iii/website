@@ -2,10 +2,11 @@
 layout:     post
 title:      Dynamic Tube MPC - Learning Tube Dynamics using Massively Parallel Simulation for Robust Practical Safety
 author:     Will Compton
-tags: 		Research Hopper
+tags: 		  Research Hopper
 subtitle:  	International Conference on Robotics and Automation 2025
 category:   paper
 thumbnail-img: img/dtmpc/hardware.jpg
+header-img: img/dtmpc/hardware.jpg
 permalink:  /papers/dynamic-tube-mpc/
 description: "Dynamic Tube MPC learns how tracking error evolves along a plan, enabling safe and agile robot navigation with dynamic safety margins. Presented at ICRA 2025, validated on the ARCHER hopping robot."
 ---
