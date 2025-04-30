@@ -59,11 +59,15 @@ This leads to behaviors where the robot moves at maximum agility when far from o
 
 To learn the the tube dynamics, we must first defined the planner-tracker paradigm. We take a system model with discrete dynamics
 
+{% raw %}
 $$\mathbf{x}_{k+1} = \mathbf{f}(\mathbf{x}_k, \mathbf{u}_k)$$
+{% endraw %}
 
 and a planning model, typically with significantly simplified dynamics,
 
+{% raw %}
 $$\mathbf{z}_{k+1} = \mathbf{f}_{\mathbf{z}}(\mathbf{z}_k, \mathbf{v}_k)$$
+{% endraw %}
 
 Add a map $$\mathbf{\Pi}$$ which takes a full order state and maps it to a state of the planning model. 
 Finally, we assume we have a tracking controller, $\mathbf{u}_k = \mathbf{k}(\mathbf{x}_k, \mathbf{z}_k, \mathbf{v}_k)$, which tracks the planning model trajectory on the tracking model. 
@@ -72,7 +76,9 @@ To learn the tube dynamics, we collect a large dataset containing trajectories o
 These datasets take the form $$\mathcal{D} = \{\mathbf{z}_{0:\bar{N}+1}, \mathbf{v}_{0:\bar{N}}, \mathbf{\Pi}(\mathbf{x}_{0:\bar{N}+1})\}$$.
 From this dataset, we train a neural network to predict a tube which the system will stay within around a given planned trajectory. We define the tube dynamics recursively via:
 
+{% raw %}
 $$w_{j+1} = f_w(\tilde{e}_{j-H:j}, \mathbf{z}_{j-H,j}, \mathbf{v}_{j-H,j})$$
+{% endraw %}
 
 we predict the size of the next tube from the previous system errors, $$e_k = \|\mathbf{z}_k - \mathbf{\Pi}(\mathbf{x}_k)\|$$ as well as the previous planned trajectory. 
 We parameterize these tube dynamics via a neural network with parameters $$\mathbf{\theta}$, denoted $$\mathbf{f}_w^{\mathbf{\theta}}$$, and train the tube dynamics by minimizing a check loss function (see paper for details).
@@ -103,6 +109,8 @@ B_{w_j}(\mathbf{z}_j) &\in \mathcal{C}
 \end{align}
 \]
 {% endraw %}
+
+Where $$J$$ is the cost function to be minimized, the first constraint is the planner dynamics, the second the tube dynamics, the third the initial condition, fourth planning input constraints, and last requiring that the tube lie in the free space $$\mathcal{C}$$. 
 
 # Deployment on the ARCHER Platform
 
