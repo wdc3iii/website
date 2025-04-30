@@ -61,13 +61,17 @@ This leads to behaviors where the robot moves at maximum agility when far from o
 To learn the the tube dynamics, we must first defined the planner-tracker paradigm. We take a system model with discrete dynamics
 
 {% raw %}
-$$\mathbf{x}_{k+1} = \mathbf{f}(\mathbf{x}_k, \mathbf{u}_k)$$
+\[
+\mathbf{x}_{k+1} = \mathbf{f}(\mathbf{x}_k, \mathbf{u}_k)
+\]
 {% endraw %}
 
 and a planning model, typically with significantly simplified dynamics,
 
 {% raw %}
-$$\mathbf{z}_{k+1} = \mathbf{f}_{\mathbf{z}}(\mathbf{z}_k, \mathbf{v}_k)$$
+\[
+\mathbf{z}_{k+1} = \mathbf{f}_{\mathbf{z}}(\mathbf{z}_k, \mathbf{v}_k)
+\]
 {% endraw %}
 
 Add a map $$\mathbf{\Pi}$$ which takes a full order state and maps it to a state of the planning model. 
@@ -78,7 +82,9 @@ These datasets take the form $$\mathcal{D} = \{\mathbf{z}_{0:\bar{N}+1}, \mathbf
 From this dataset, we train a neural network to predict a tube which the system will stay within around a given planned trajectory. We define the tube dynamics recursively via:
 
 {% raw %}
-$$w_{j+1} = f_w(\tilde{e}_{j-H:j}, \mathbf{z}_{j-H,j}, \mathbf{v}_{j-H,j})$$
+\[
+w_{j+1} = f_w(\tilde{e}_{j-H:j}, \mathbf{z}_{j-H,j}, \mathbf{v}_{j-H,j})
+\]
 {% endraw %}
 
 ![The tube dynamics take in an error history and a planning model state and input history and trajectory, and will predict future errors.]({{ site.baseurl }}/img/dtmpc/tube_dyn.jpg)
