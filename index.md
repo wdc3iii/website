@@ -41,13 +41,6 @@ nav_order: 0
   gap: 20px;
 }
 
-.post-card img {
-  width: 200px;
-  height: 130px;
-  object-fit: cover;
-  border-radius: 12px;
-}
-
 .post-content h1 {
   font-size: 5rem;    /* ← bigger for post titles */
 }
