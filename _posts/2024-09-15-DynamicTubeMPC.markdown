@@ -30,7 +30,7 @@ The full text paper can be found on [arXiv](https://arxiv.org/abs/2411.15350).
 When planning paths in cluttered environments, roboticists have a a few main of tools at thier disposal: graph search methods (including A* on a discrete grid, and RRT to construct a graph, followed by A* to search it), heuristic methods (artificial potential fields, ...) and optimization based methods (model predictive control).
 When the state or dynamics of the robot is complicated, for instance in the case of a humaniod robot or a hopping robot, none of these methods are computationally tractible to solve planning problems; even at a few dimensions, the curse of dimensionality indicates that the space will be too large to search through, and too nonlinear, nonconvex, and long horizon to optimize for.
 In this case, roboticists will typically turn to a durastically simplified model of the robot to solve the planning problem, typically one of:
- - planar state representation $x \in \mathcal{R}^$, no dynamics (kinematic connectivity only)
+ - planar state representation $x \in \mathcal{R}^2$, no dynamics (kinematic connectivity only)
  - reduced state representation, simple dynamics (single/double integrator, unicycle)
 
 Whatever plan is created using this model representation, called the **planning model** will then be passed down to a tracking controller, designed to control the **tracking model** to follow the plan. 
@@ -57,7 +57,33 @@ This leads to behaviors where the robot moves at maximum agility when far from o
 
 # Learning Tube Dynamics
 
-# Optimizing Tube Dynamics
+To learn the the tube dynamics, we must first defined the planner-tracker paradigm. We take a system model with discrete dynamics
+$$\mathbf{x}_{k+1} = \mathbf{f}(\mathbf{x}_k, \mathbf{u}_k)$$
+and a planning model, typically with significantly simplified dynamics,
+$$\mathbf{z}_{k+1} = \mathbf{f}_{\mathbf{z}}(\mathbf{z}_k, \mathbf{v}_k)$$
+Add a map $\mathbf{\Pi}$ which takes a full order state and maps it to a state of the planning model. 
+Finally, we assume we have a tracking controller, $\mathbf{u}_k = \mathbf{k}(\mathbf{x}_k, \mathbf{z}_k, \mathbf{v}_k)$, which tracks the planning model trajectory on the tracking model. 
+
+To learn the tube dynamics, we collect a large dataset containing trajectories of the planning model, as well as trajectories of the tracking model, under the action of the tracking controller.
+These datasets take the form $\mathcal{D} = \{\mathbf{z}_{0:\bar{N}+1}, \mathbf{v}_{0:\bar{N}}, \mathbf{\Pi}(\mathbf{x}_{0:\bar{N}+1})\}$.
+From this dataset, we train a neural network to predict a tube which the system will stay within around a given planned trajectory. We define the tube dynamics recursively via:
+$$w_{j+1} = f_w(\tilde{e}_{j-H:j}, \mathbf{z}_{j-H,j}, \mathbf{v}_{j-H,j})$$
+we predict the size of the next tube from the previous system errors, $e_k = \|\mathbf{z}_k - \mathbf{\Pi}(\mathbf{x}_k)\|$ as well as the previous planned trajectory. 
+We parameterize these tube dynamics via a neural network with parameters $\mathbf{\theta}$, denoted $\mathbf{f}_w^{\mathbf{\theta}}$, and train the tube dynamics by minimizing a check loss function (see paper for details).
+
+A critical component of this process is the **history** incorporated into the tube prediction. 
+Without a history, it is very difficult to predict size of the next error with any accuracy: imagine a planning model which only contains positions as states. 
+If we only know the current error, without knowledge of the velocity of the robot, we cannot tell whether this error is increasing or decreasing. 
+A reasonable question, therefore, is why the tube dynamics don't depend on the tracking model system state, $\mathbf{x}$. 
+This is to facilitate planning - as seen in the next section, we will use the tube dynamics to plan into the future, using MPC, on only the planning model. 
+As future plans will not included planned states for $\mathbf{x}$, our tube dynamics cannot depend on them either.
+However, including a history allows the tube model to effectively filter out relevant information regarding the full order model, and better predict future errors.
+The effect of the history length is shown in the Figure above, where prediction accuracy monotonically improves with longer history. 
+As longer histories lead to more complex Dynamic Tube MPC problems, we will typically use as short a history as possible to achieve adaquate performance. 
+
+# Dynamic Tube MPC
+
+
 
 # Deployment on the ARCHER Platform
 
@@ -172,3 +198,9 @@ Dynamic Tube MPC offers a **powerful new framework** for **safe and agile** robo
 - [Full Paper (arXiv)](https://arxiv.org/abs/2411.15350)
 - [Project Code on GitHub](https://github.com/wdc3iii/LearningTubesMPC)
 
+
+<script type="text/javascript"
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
