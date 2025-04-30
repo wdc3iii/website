@@ -5,13 +5,13 @@ author:     Will Compton
 tags: 		Research Hopper
 subtitle:  	International Conference on Robotics and Automation 2025
 category:   paper
-thumbnail-img: img/code_background.png
+thumbnail-img: img/dtmpc/hardware.jpg
 permalink:  /papers/dynamic-tube-mpc/
 description: "Dynamic Tube MPC learns how tracking error evolves along a plan, enabling safe and agile robot navigation with dynamic safety margins. Presented at ICRA 2025, validated on the ARCHER hopping robot."
 ---
 <!-- Start Writing Below in Markdown -->
 
-This post summarizes the content and contributions of my recent paper on Dynamic Tube MPC, accepted and to be presented at the International Conference on Robotics and Automation 2025, in Atlanta, Georgia. We begin by **motivating** the problem by considering 1) rational of the planner-tracker paradigm and 2) issues with feasibility and conservatism with classical tube MPC. Secondly, we introduce a **learning problem**, leveraging massively parallel simulation to learn tube dynamics, to optimize collision free trajectories for the system. Finally, we **deploy** the method on a hopping robot, ARCHER. 
+This post summarizes the content and contributions of my recent paper on Dynamic Tube MPC, accepted and to be presented at the [International Conference on Robotics and Automation 2025, in Atlanta, Georgia](https://2025.ieee-icra.org/program/). We begin by **motivating** the problem by considering 1) rational of the planner-tracker paradigm and 2) issues with feasibility and conservatism with classical tube MPC. Secondly, we introduce a **learning problem**, leveraging massively parallel simulation to learn tube dynamics, to optimize collision free trajectories for the system. Finally, we **deploy** the method on a hopping robot, ARCHER. 
 
 The full text paper can be found on [arXiv](https://arxiv.org/abs/2411.15350).
 
@@ -27,7 +27,7 @@ The full text paper can be found on [arXiv](https://arxiv.org/abs/2411.15350).
 
 # Motivating Dynamic Tube MPC: Planner-Tracker Paradigm and Classical Tube MPC
 
-When planning paths in cluttered environments, roboticists have a a few main of tools at thier disposal: graph search methods (including A* on a discrete grid, and RRT to construct a graph, followed by A* to search it), heuristic methods (artificial potential fields, ...) and optimization based methods (model predictive control).
+When planning paths in cluttered environments, roboticists have a a few main of tools at thier disposal: graph search methods (including [A* on a discrete grid](https://en.wikipedia.org/wiki/A*_search_algorithm), and [RRT](https://en.wikipedia.org/wiki/Rapidly_exploring_random_tree) to construct a graph, followed by A* to search it), heuristic methods ([artificial potential fields](https://en.wikipedia.org/wiki/Motion_planning#Artificial_potential_fields), ...) and optimization based methods ([model predictive control](https://en.wikipedia.org/wiki/Model_predictive_control)).
 When the state or dynamics of the robot is complicated, for instance in the case of a humaniod robot or a hopping robot, none of these methods are computationally tractible to solve planning problems; even at a few dimensions, the curse of dimensionality indicates that the space will be too large to search through, and too nonlinear, nonconvex, and long horizon to optimize for.
 In this case, roboticists will typically turn to a durastically simplified model of the robot to solve the planning problem, typically one of:
  - planar state representation $x \in \mathcal{R}^2$, no dynamics (kinematic connectivity only)
@@ -39,10 +39,10 @@ Critically, because the planner and tracker do not share the same dynamics, the 
 This error can lead to collisions in the environment, if not accounted for correctly.
 
 The easiest and fastest adjustment to account for the model mismatch is the buffer all of the obstacles in the environment by a heuristic margin.
-If this margin is large enough, meaning that the true system will stay with a **tube** of this size around the nominal trajectory, then it will avoid collision with the environment; this approach is known as tube model predictive control (Tube MPC) - or more specifically, Fixed Tube MPC.
+If this margin is large enough, meaning that the true system will stay with a **tube** of this size around the nominal trajectory, then it will avoid collision with the environment; this approach is known as tube model predictive control (Tube MPC) - or more specifically, [Fixed Tube MPC](https://ieeexplore.ieee.org/document/1383612).
 From a theoretical perspective, if the tracking controller can establish a robust tracking invariant around the nominal trajectory, then planning a trajectory such that the tube, created by buffering the plan by the tracking invariant, lies in the free space gives guaranteed collision free paths.
 
-Insert tubes figure...
+![Classical Tube MPC can lead to either infeasible or conservative behaviors; Dynamic Tube MPC retains feasibility and performance.](/img/dtmpc/feasibility_figure.jpg)
 
 However, fixing the size of the tube a-priori can lead to significant issues, namely overly conservative behaviors, or unecessary infeasibility, as shown in the figure above. 
 Our key insight is the fact that the size of the tracking tube **typically depends on the trajectory you are trying to track**.
@@ -80,8 +80,12 @@ From this dataset, we train a neural network to predict a tube which the system 
 $$w_{j+1} = f_w(\tilde{e}_{j-H:j}, \mathbf{z}_{j-H,j}, \mathbf{v}_{j-H,j})$$
 {% endraw %}
 
+![The tube dynamics take in an error history and a planning model state and input history and trajectory, and will predict future errors.](/img/dtmpc/tube_dyn.jpg)
+
 we predict the size of the next tube from the previous system errors, $$e_k = \|\mathbf{z}_k - \mathbf{\Pi}(\mathbf{x}_k)\|$$ as well as the previous planned trajectory. 
-We parameterize these tube dynamics via a neural network with parameters $$\mathbf{\theta}$, denoted $$\mathbf{f}_w^{\mathbf{\theta}}$$, and train the tube dynamics by minimizing a check loss function (see paper for details).
+We parameterize these tube dynamics via a neural network with parameters $$\mathbf{\theta}$$, denoted $$\mathbf{f}_w^{\mathbf{\theta}}$$, and train the tube dynamics by minimizing a check loss function (see paper for details).
+
+![Increasing history length leads to the learned tube producing more accurate tube predictions.](/img/dtmpc/history_comparison_figure.jpg)
 
 A critical component of this process is the **history** incorporated into the tube prediction. 
 Without a history, it is very difficult to predict size of the next error with any accuracy: imagine a planning model which only contains positions as states. 
@@ -113,118 +117,24 @@ B_{w_j}(\mathbf{z}_j) &\in \mathcal{C}
 Where $$J$$ is the cost function to be minimized, the first constraint is the planner dynamics, the second the tube dynamics, the third the initial condition, fourth planning input constraints, and last requiring that the tube lie in the free space $$\mathcal{C}$$. 
 
 # Deployment on the ARCHER Platform
+![Dynamic Tube MPC deployed on the hopping robot ARCHER.](/img/dtmpc/hero.jpg)
 
----
+We deploy this dynamic tube MPC on the hopping robot ARCHER. The data to train the tube dynamics is collected using massively parallel simulation in [IsaacGym](https://developer.nvidia.com/isaac-gym) (now [IsaacLab](https://isaac-sim.github.io/IsaacLab/main/index.html)!), allowing for millions of transitions to be collected in minutes.
 
-**Authors**: **William D. Compton**, Noel Csomay-Shanklin, Cole Johnson, Aaron D. Ames
+![Collection of data to train tube dynamics in IsaacGym.](/img/dtmpc/isaac.jpg)
 
----
+ Additionally, this scale of data collection enables domain randomization, which aids in ensuring the tubes trained in simulation will encapuslate the actual dynamics of the hardware system (i.e., addressing the sim2real gap). We deploy the algorithm successfully on the hopper, and observe emergent behaviors where the hopper moves at maximum speed away from obstacles, then reduces its speed to improve tracking near obstacles.
 
-## Overview
+![Dynamic Tube MPC reduces speed in narrow spaces, while increasing speed away from obstacles, automatically trading off performance and safety.](/img/dtmpc/hardware.jpg)
 
-We introduce **Dynamic Tube MPC**, a new method for robust, real-time safe navigation of cluttered environments.
-
-Instead of assuming a fixed worst-case tracking error, we **learn how tracking error evolves** based on the specific **actions** taken by a **planning model**. This learned **dynamic tube** is used to plan trajectories where the tube stays safely within the free space, enabling both **agility** and **guaranteed safety**.
-
-**Key Contributions**:
-- Leverage **massively parallel simulation** to learn tube dynamics at scale.
-- Incorporate **error history** to improve prediction accuracy of tracking bounds.
-- Formulate a real-time **Dynamic Tube MPC** that optimizes trajectories while guaranteeing collision avoidance.
-- Deploy on the 3D hopping robot **ARCHER**, achieving safe, agile navigation through tight clutter.
-
----
-
-## Motivation
-
-In traditional planning + tracking hierarchies:
-- Planning uses a **simplified model**.
-- Tracking tries to follow the plan on the **full-order robot**.
-
-**But**:
-- **Tracking error** can lead to collisions.
-- Most methods use **fixed worst-case bounds** — overly conservative.
-
-**Dynamic Tube MPC** instead learns:
-- How **tracking error depends on the plan**.
-- How to adaptively **tighten or loosen** planning based on environment difficulty.
-
----
-
-## Core Idea: Learning Dynamic Tubes
-
-We predict the **size of the tracking error tube** based on:
-- A **history** of past tracking errors.
-- The **planned future trajectory**.
-
-Two learning methods:
-- **One-shot** prediction: predicts the whole future tube at once.
-- **Recursive** prediction: predicts tube step-by-step.
-
-Training uses **massive simulated datasets** (400,000+ trajectories), collected with **IsaacGym** for fast GPU-based parallel simulation.
-
-![Dynamic Tube Concept](dynamic_tube_diagram.png)
-
----
-
-## Dynamic Tube MPC Formulation
-
-Planning optimizes both:
-- The **trajectory** of the reduced-order model.
-- The **dynamic tube** predicted along that trajectory.
-
-Constraints:
-- The **tube** must stay within free space.
-- Aggressive moves => larger tube; conservative moves => smaller tube.
-
-Thus, the planner can **trade off speed and safety in real time** based on obstacle proximity.
-
----
-
-## Experimental Validation on ARCHER
-
-Deployed in hardware experiments:
-- **ARCHER** 3D hopping robot navigates cluttered courses safely.
-- Dynamically **slows down** when in tight corridors.
-- **Speeds up** in open spaces.
-
-Comparison to traditional tube MPC:
-- Dynamic Tube MPC achieves **faster traversal** and **higher success rates** without sacrificing safety.
-- Fixed tubes either **failed to solve** the problem or were **extremely slow**.
-
-![Hardware Navigation Results](archer_navigation_results.png)
-
----
-
-## Key Insights
-
-- **Including error history** significantly improves tube prediction accuracy.
-- Dynamic tubes **adjust online**, outperforming fixed worst-case tubes.
-- **Real-time planning** achieved at **10 Hz** update rates on hardware.
-- **Domain randomization** (e.g., robot mass changes) crucial for sim-to-real transfer.
-
----
-
-## Limitations
-
-- Training trajectories are **random**, while deployment trajectories are **optimized**; future work could better match training and deployment distributions.
-- Training tube models is computationally expensive (but one-time cost).
-
----
+This behavior balances dynamic behaviors with safe navigation of cluttered spaces, on a complex robotic system. A [video]() showcasing the Dynamic Tube MPC on ARCHER is embedded at the top of the page. For other projects involving this awesome hopping robot, see my work on [Zero Dynamics Policies](https://wdc3iii.github.io/website/papers/agile-hopping/) ([video](https://youtu.be/k3YuoKA4HNk?si=z30ymr2_BAvO57KW)) and [Predictive Control Barrier Functions](https://wdc3iii.github.io/website/papers/predictive-control-barrier-functions/) ([video](https://youtu.be/6pY7T6yucBs)).
 
 ## Conclusion
 
 Dynamic Tube MPC offers a **powerful new framework** for **safe and agile** robot navigation:
-- Combines learning, simulation, and control.
-- Achieves **adaptive safety margins** in real time.
-- Scales to complex high-dimensional robotic systems.
-
----
-
-## Learn More
-
-- [Full Paper (arXiv)](https://arxiv.org/abs/2411.15350)
-- [Project Code on GitHub](https://github.com/wdc3iii/LearningTubesMPC)
-
+- Leverages massively parallel simulation and error histories to learn tracking error tubes which depend on the planned model.
+- Formulated an optimization problem which trades off performance and safety in real-time, enabling dynamic and safe behaviors.
+- Deploys Dynamic Tube MPC a complex robotic system, the hopping robot ARCHER.
 
 <script>
 window.MathJax = {
