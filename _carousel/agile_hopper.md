@@ -1,5 +1,5 @@
 ---
 title: "Hopper ZDP"
-img: img/carousel/code_background.png
+img: img/agile_hopping/experiment.jpg
 link_url: /papers/agile-hopping/
 ---
