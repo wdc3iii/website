@@ -29,8 +29,8 @@ The full text of the paper is available from [IEEE](https://ieeexplore.ieee.org/
 # Difficulties of Controlling Hopping Robots (ARCHER)
 
 The hopping robot ARCHER contains a few key properties which makes it quite difficult to control using conventional methods from nonlinear control theory.
- - The system is **underactuated**. There are no actuators on the **position** of the center of mass, so stabilizing the robot to a specific position requires careful coordination of the actuated degrees of freedom to stabilize the entire system.
- - The system is **hybrid**. The system undergoes both continous and discrete (impact) dynamics, including two different continuous phases (flight and ground). Additionally, the ground dynamics are very stiff due to spring in the robot's foot. These different dynamics modes can make planning and control and even simulation quite difficult compared to purely continuous or purely discrete systems. 
+ - The system is [**underactuated**](https://en.wikipedia.org/wiki/Underactuation). There are no actuators on the **position** of the center of mass, so stabilizing the robot to a specific position requires careful coordination of the actuated degrees of freedom to stabilize the entire system.
+ - The system is [**hybrid**](https://en.wikipedia.org/wiki/Hybrid_system). The system undergoes both continous and discrete (impact) dynamics, including two different continuous phases (flight and ground). Additionally, the ground dynamics are very stiff due to spring in the robot's foot. These different dynamics modes can make planning and control and even simulation quite difficult compared to purely continuous or purely discrete systems. 
  - Tight **input bounds**. The motors on the flywheels have limited torque; input bounds can be difficult to treat with conventional nonlinear control methods.
  - **State-input constraints**. Once the flywheels reach the maximum motor speed, they no longer can be used to apply torque to the robot in that direction. This represents a state-input bound (as inputs become bounded as flywheels approach saturation), which is even more difficult to handle than input bounds alone. 
 
