@@ -18,7 +18,7 @@ The full text paper can be found on [arXiv](https://arxiv.org/abs/2411.15350).
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
   <iframe 
-    src="https://www.youtube.com/embed/e-aXDbXGfVQ?si=2Fd_8G59LiZSGWIb&autoplay=1&mute=1" 
+    src="https://www.youtube.com/embed/e-aXDbXGfVQ?si=2Fd_8G59LiZSGWIb&autoplay=1&mute=1&loop=1&playlist=e-aXDbXGfVQ" 
     frameborder="0" 
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
     allowfullscreen 
