@@ -5,7 +5,8 @@ author:     Will Compton
 tags: 		Exams References
 subtitle:  	Content and Preparation
 category:   blog
-thumbnail-img: img/code_background.png
+thumbnail-img: img/refs.png
+header-img: img/refs.png
 permalink:  /blog/qualifying-exams/
 description: "Content and preparation advice for the CDS Qualifying exams at Caltech."
 ---
