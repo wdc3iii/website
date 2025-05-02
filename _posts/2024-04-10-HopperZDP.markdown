@@ -43,7 +43,7 @@ The zero dynamics policy is a map between the systems unactuated coordinates (in
 If we connect up the 'desired orientation' at every position and velocity, we end up with a manifold, existing as a submanifold on the guard of the hybrid system. It turns out, as long as we can converge our orientation sufficently exponentially fast to this manifold, we stabilize the entire system to the origin. 
 So during execution, we use a geometrically consistent PD controller to drive the hopper to a desired orientation, and stabilize the system to the origin in this manner.
 
-![Training process for the hybrid zero dynamics policy learning problem]({{ site.baseurl }}/img/agile_hopping/ImpactMap.jpg)
+![Visualization of the hybrid zero dynamics policy as an invariant manifold.]({{ site.baseurl }}/img/agile_hopping/ImpactMap.png)
 
 Finally, we develop a learning pipeline, shown above, which uses optimal control to learn this manifold for the hopper. While locally around the origin policies look similar to the Raibert Heuristic, they differentiate themselves with better behavior far from the origin. 
 
